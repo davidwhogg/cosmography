@@ -11,7 +11,7 @@
   Michael Blanton\altaffilmark{1},
   Daniel J. Eisenstein\altaffilmark{3},
   and Ivan K. Baldry\altaffilmark{4}\\
-  \textsl{second draft---2002 July 26}
+  \textsl{second draft---2002 July 29}
 }
 \altaffiltext{1}{
   Center for Cosmology and Particle Physics,
@@ -41,33 +41,34 @@ magnitude in another broad bandpass, is described.
 The expansion of the universe provides astronomers with the benefit
 that recession velocities can be translated into radial distances
 \citep[eg,][and references therein]{hogg99cosm}.  It also presents the
-challenge that sources observed at different redshifts are sampled,
-by any particular instrument, at different rest-frame frequencies.
-The transformations between observed and rest-frame broad-band
-photometric measurements are known as ``k~corrections''
-\citep{oke68a}.  Technically, the k~corrections described here include
-a slight generalization from the original conception: we allow the
-observed and rest-frame bandpasses to have arbitrarily different
-shapes and position in frequency space.
+challenge that sources observed at different redshifts are sampled, by
+any particular instrument, at different rest-frame frequencies.  The
+transformations between observed and rest-frame broad-band photometric
+measurements are known as ``k~corrections'' \citep{oke68a}.
+Technically, the k~corrections described here include a slight
+generalization from the original conception: here the observed and
+rest-frame bandpasses are permitted to have arbitrarily different
+shapes and positions in frequency space.
 
 \section{Equations}
 
 Consider a source observed to have apparent magnitude $m_R$ when
-observed through photometric bandpass $R$, for which we wish to know
-its absolute magnitude $M_Q$ in emitted-frame bandpass $Q$.  The
+observed through photometric bandpass $R$, for which one wishes to
+know its absolute magnitude $M_Q$ in emitted-frame bandpass $Q$.  The
 k~correction $K_{QR}(z)$ for this source is \emph{defined} by
 \begin{equation}
 \label{eq:definition}
-m_R = M_Q + DM(z) + K_{QR}(z) \;\;\;,
+m_R = M_Q + DM + K_{QR}(z) \;\;\;,
 \end{equation}
-where $DM(z)$ is the distance modulus, defined by
+where $DM$ is the distance modulus, defined by
 \begin{equation}
-DM(z) = 5\,\log_{10}\left[\frac{D_L^2}{(10~\mathrm{pc})^2}\right] \;\;\;,
+DM = 5\,\log_{10}\left[\frac{D_L^2}{(10~\mathrm{pc})^2}\right] \;\;\;,
 \end{equation}
 where $D_L$ is the luminosity distance \citep[eg,][]{hogg99cosm}.
 
 The apparent magnitude $m_R$ of the source is related to its spectral
-density of flux $f_{\nu}(\nu)$ (power per unit area per unit frequency) by
+density of flux $f_{\nu}(\nu)$ (power per unit area per unit
+frequency) by
 \begin{equation}
 m_R = -2.5\,\log_{10}\left[
   \frac{\displaystyle
@@ -85,66 +86,97 @@ hypothetical constant source with $g_{\nu}(\nu_o)=3631~\mathrm{Jy}$
 10^{-23}~\mathrm{erg\,cm^{-2}\,s^{-1}\,Hz^{-1}}$) at all frequencies
 $\nu$; and $R(\nu)$ describes the bandpass, as follows:
 
-The value of $R(\nu)$ at each freqency $\nu$ is the average
-contribution of a photon of frequency $\nu$ to the output signal from
-the detector.  If the detector is a photon counter, like a CCD, then
-$R(\nu)$ is just the probability that a photon of frequency $\nu_o$
-gets counted.  If the detector is a bolometer or calorimeter, then
-$R(\nu)$ is just the fraction of photons of energy $\nu$ that get
-absorbed into the detector, times the energy deposition $h\,\nu$ per
-photon.  If $R(\nu)$ has been properly computed, there is no need to
-write different integrals for photon counters and bolometers.
+The value of $R(\nu)$ at each freqency $\nu$ is the mean contribution
+of a photon of frequency $\nu$ to the output signal from the detector.
+If the detector is a photon counter, like a CCD, then $R(\nu)$ is just
+the probability that a photon of frequency $\nu_o$ gets counted.  If
+the detector is a bolometer or calorimeter, then $R(\nu)$ is the
+energy deposition $h\,\nu$ per photon times the fraction of photons of
+energy $\nu$ that get absorbed into the detector.  If $R(\nu)$ has
+been properly computed, there is no need to write different integrals
+for photon counters and bolometers.
 
-The absolute magnitude $M_Q$ is related to the spectral density of the
-luminosity $L_{\nu}(\nu)$ (power per unit frequency) of the source by
+The absolute magnitude $M_Q$ can be defined to be the apparent
+magnitude that the source \emph{would} have if it were
+$10~\mathrm{pc}$ away, at rest (ie, not redshifted), and compact.  It
+is related to the spectral density of the luminosity $L_{\nu}(\nu)$
+(power per unit frequency) of the source by
 \begin{equation}
-m_R = -2.5\,\log_{10}\left[
+M_Q = -2.5\,\log_{10}\left[
   \frac{\displaystyle
-          \int\frac{\mathrm{d}\nu_e}{\nu_e}\,L_{\nu}(\nu_e)\,
-          Q(\nu_e)}
+          \int\frac{\mathrm{d}\nu_e}{\nu_e}\,
+              \frac{L_{\nu}(\nu_e)}{(10~\mathrm{pc})^2}\,Q(\nu_e)}
        {\displaystyle
-          \int\frac{\mathrm{d}\nu_e}{\nu_e}\,4\pi\,D_L^2\,g_{\nu}(\nu_e)\,
-          Q(\nu_e)}
+          \int\frac{\mathrm{d}\nu_e}{\nu_e}\,g_{\nu}(\nu_e)\,Q(\nu_e)}
 \right] \;\;\;,
 \end{equation}
 where the integrals are over emitted (ie, rest-frame) frequencies
 $\nu_e$, $D_L$ is the luminosity distance, and $Q(\nu)$ is the
 equivalent of $R(\nu)$ but for the bandpass $Q$.  As mentioned above,
-we are not requiring that $Q=R$, so this is, technically, a
-generalization of the k~correction.  If the source is at redshift $z$,
-then
+this does not require $Q=R$, so this is, technically, a generalization
+of the k~correction.
+
+If the source is at redshift $z$, then its luminosity is related to
+its flux by
 \begin{equation}
 L_{\nu}(\nu_e) = \frac{4\pi\,D_L^2}{1+z}\,f_{\nu}(\nu_o) \;\;\;,
 \end{equation}
-where the factor of $(1+z)$ accounts for the fact that the flux is not
-bolometric but flux density per unit freqency.  The factor would
-appear in the numerator if we were using flux density per unit
-wavelength.  There would be no factor if we were using flux density
-per unit logarithm of frequency
+where the factor of $(1+z)$ accounts for the fact that the flux and
+luminosity are not bolometric but densities per unit freqency.  The
+factor would appear in the numerator if the expression related flux
+and luminosity densities per unit wavelength.
 
 Equation (\ref{eq:definition}) holds if the k~correction $K_{QR}(z)$
 is
 \begin{equation}
 \label{eq:kcorrection}
-K_{QR}(z) = -2.5\,\log_{10}\left[
+K_{QR}(z) = -2.5\,\log_{10}\left[(1+z)\,
   \frac{\displaystyle
           \int\frac{\mathrm{d}\nu_o}{\nu_o}\,f_{\nu}(\nu_o)\,R(\nu_o)\,
-          \int\frac{\mathrm{d}\nu_e}{\nu_e}\,
-          g_{\nu}(\nu_e)\,                       Q(\nu_e)}
+          \int\frac{\mathrm{d}\nu_e}{\nu_e}\,g_{\nu}(\nu_e)\,Q(\nu_e)}
        {\displaystyle
           \int\frac{\mathrm{d}\nu_o}{\nu_o}\,g_{\nu}(\nu_o)\,R(\nu_o)\,
-          \int\frac{\mathrm{d}\nu_e}{\nu_e}\,\frac{1}{1+z}\,
-          f_{\nu}\left(\frac{\nu_e}{1+z}\right)\,Q(\nu_e)}
+          \int\frac{\mathrm{d}\nu_e}{\nu_e}\,
+            f_{\nu}\left(\frac{\nu_e}{1+z}\right)\,Q(\nu_e)}
 \right] \;\;\;,
 \end{equation}
-where factors of $4\pi\,D_L^2$ have been canceled out.  This
-(\ref{eq:kcorrection}) can be taken to be an operational definition,
-therefore, of the k~correction, from observations through bandpass $R$
-of a source whose absolute magnitude $M_Q$ through bandpass $Q$ is
-desired.  In principle, if the $R$ and $Q$ have different zeropoint
-definitions (eg, if $R$ is Vega-relative and $Q$ is AB), the
-$g_{\nu}(\nu_e)$ in the numerator can be a different function from the
-$g_{\nu}(\nu_o)$ in the denominator; in practice this situation is rare.
+[SHOULD WE COMMENT ON THE $(1+z)$ FACTOR??]
+
+Equation (\ref{eq:kcorrection}) can be taken to be an operational
+definition, therefore, of the k~correction, from observations through
+bandpass $R$ of a source whose absolute magnitude $M_Q$ through
+bandpass $Q$ is desired.  In principle, if the $R$ and $Q$ have
+different zeropoint definitions (eg, if $R$ is Vega-relative and $Q$
+is AB), the $g_{\nu}(\nu_e)$ in the numerator can be a different
+function from the $g_{\nu}(\nu_o)$ in the denominator; in practice
+this situation is rare.
+
+In the above, all calculations were performed in frequency units.  In
+wavelength units, the spectral density of flux $f_{\nu}(\nu)$ per unit
+frequency is replaced with the spectral density of flux
+$f_{\lambda}(\lambda)$ per unit wavelength using
+\begin{equation}
+\nu\,f_{\nu}(\nu) = \lambda\,f_{\lambda}(\lambda) \;\;\;.
+\end{equation}
+The k~correction becomes
+\begin{equation}
+K_{QR}(z) = -2.5\,\log_{10}\left[\frac{1}{(1+z)}\,
+  \frac{\displaystyle
+    \int\mathrm{d}\lambda_o\,\lambda_o\,f_{\lambda}(\lambda_o)\,R(\lambda_o)\,
+      \int\mathrm{d}\lambda_e\,\lambda_e\,
+      g_{\lambda}(\lambda_e)\,     Q(\lambda_e)}
+       {\displaystyle
+    \int\mathrm{d}\lambda_o\,\lambda_o\,g_{\lambda}(\lambda_o)\,R(\lambda_o)\,
+      \int\mathrm{d}\lambda_e\,\lambda_e\,
+      f_{\lambda}(\lambda_e[1+z])\,Q(\lambda_e)}
+\right] \;\;\;,
+\end{equation}
+[CHECK THIS??] where, again, $R(\lambda)$ is defined to be the mean
+contribution to the detector signal in the $R$ bandpass for a photon
+of wavelength $\lambda$ and $Q(\lambda)$ is defined similarly.  Note
+that the hypothetical standard source for the AB magnitude system,
+with $g_{\nu}(\nu)$ constant, has
+$g_{\lambda}(\lambda)\propto\lambda^{-2}$.
 
 \section{Discussion}
 
