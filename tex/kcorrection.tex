@@ -6,9 +6,51 @@
 \begin{document}
 
 \title{K-corrections}
-\author{David W. Hogg, Michael Blanton, Daniel J. Eisenstein}
+\author{
+  David W. Hogg\altaffilmark{1,2},
+  Michael Blanton\altaffilmark{1},
+  Daniel J. Eisenstein\altaffilmark{3},
+  and Ivan K. Baldry\altaffilmark{4}\\
+  \textsl{draft---2002 July 25}
+}
+\altaffiltext{1}{
+  Center for Cosmology and Particle Physics,
+  Department of Physics,
+  New York University
+}
+\altaffiltext{2}{
+  \texttt{david.hogg@nyu.edu}
+}
+\altaffiltext{3}{
+  Steward Observatory,
+  University of Arizona
+}
+\altaffiltext{4}{
+  Department of Physics and Astronomy,
+  The Johns Hopkins University
+}
 
-\section{Definitions and notation}
+\begin{abstract}
+The k-correction, used in relating the rest-frame absolute magnitude
+in one broad photometric bandpass to the observed-frame apparent
+magnitude in another broad bandpass, is described.
+\end{abstract}
+
+\section{Introduction}
+
+The expansion of the universe provides astronomers with the great
+benefit that recession velocities can be translated into radial
+distances \citep[eg,][and references therein]{hogg99cosm}, but the
+challenge that sources observed at different redshifts are observed,
+by any particular instrument, at different rest-frame frequencies.
+The transformations between observed and rest-frame broad-band
+photometric measurements are known as ``k-corrections''
+\citep{oke68a}.  Technically, the k-corrections described here include
+a slight generalization from the original conception: we allow the
+observed and rest-frame bandpasses to have arbitrarily different
+shapes and position in frequency space.
+
+\section{Equations}
 
 Consider a source observed to have apparent magnitude $m_R$ when
 observed through photometric bandpass $R$, for which we wish to know
@@ -24,8 +66,7 @@ where $DM(z)$ is the distance modulus, defined by
 \begin{equation}
 DM(z) = 5\,\log_{10}\left[\frac{D_L^2}{(10~\mathrm{pc})^2}\right] \;\;\;,
 \end{equation}
-where $D_L$ is the luminosity distance \citep[eg,][and references
-therein]{hogg99cosm}.
+where $D_L$ is the luminosity distance \citep[eg,][]{hogg99cosm}.
 
 The apparent magnitude $m_R$ of the source is related to its spectral
 density of flux $f(\nu)$ (power per unit area per unit frequency) by
