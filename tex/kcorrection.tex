@@ -122,7 +122,7 @@ constant source with $g^\mathrm{AB}_{\nu}(\nu)=3631~\mathrm{Jy}$
 10^{-23}~\mathrm{erg\,cm^{-2}\,s^{-1}\,Hz^{-1}}$) at all frequencies
 $\nu$; and $R(\nu)$ describes the bandpass, as follows:
 
-The value of $R(\nu)$ at each freqency $\nu$ is the mean contribution
+The value of $R(\nu)$ at each frequency $\nu$ is the mean contribution
 of a photon of frequency $\nu$ to the output signal from the detector.
 If the detector is a photon counter, like a CCD, then $R(\nu)$ is just
 the probability that a photon of frequency $\nuobs$ gets counted.  If
@@ -148,13 +148,12 @@ M_Q = -2.5\,\log_{10}\left[
 \right] \;\;\;,
 \end{equation}
 where the integrals are over emitted (\ie, rest-frame) frequencies
-$\nuemit$, $D_L$ is the luminosity distance, and $Q(\nu)$ is the
-equivalent of $R(\nu)$ but for the bandpass $Q$.  As mentioned above,
-this does not require $Q=R$, so this will lead to, technically, a
-generalization of the \kcorrection.  In addition, since the $Q$ and
-$R$ bands can be zero-pointed to different standard sources (\eg, if
-$R$ is Vega-relative and $Q$ is AB), it is not necessary that
-$g^Q_{\nu}=g^R_{\nu}$.
+$\nuemit$, and $Q(\nu)$ is the equivalent of $R(\nu)$ but for the
+bandpass $Q$.  As mentioned above, this does not require $Q=R$, so
+this will lead to, technically, a generalization of the \kcorrection.
+In addition, since the $Q$ and $R$ bands can be zero-pointed to
+different standard sources (\eg, if $R$ is Vega-relative and $Q$ is
+AB), it is not necessary that $g^Q_{\nu}=g^R_{\nu}$.
 
 If the source is at redshift $z$, then its luminosity is related to
 its flux by
@@ -167,7 +166,7 @@ L_{\nu}(\nuemit) = \frac{4\pi\,D_L^2}{1+z}\,f_{\nu}(\nuobs) \;\;\;,
 \end{equation}
 The factor of $(1+z)$ in the luminosity expression
 (\ref{eq:luminosity}) accounts for the fact that the flux and
-luminosity are not bolometric but densities per unit freqency.  The
+luminosity are not bolometric but densities per unit frequency.  The
 factor would appear in the numerator if the expression related flux
 and luminosity densities per unit wavelength.
 
@@ -315,9 +314,10 @@ acceptance band was shifted by $1+z$ at all wavelengths'' becomes
 incorrect; the correct statement is that the \kcorrection\ would not
 depend on the source's spectrum $f_{\nu}(\nu)$.
 
-\acknowledgements It is a pleasure to thank Bev Oke for useful
-discussions.  This research made use of the NASA Astrophysics Data
-System, and was partially supported by funding from NASA and NSF.
+\acknowledgements It is a pleasure to thank Jason Kurk for catching
+typos and Bev Oke for help with the literature.  This research made
+use of the NASA Astrophysics Data System, and was partially supported
+by funding from NASA and NSF.
 
 \bibliographystyle{hacked_apj}
 \bibliography{apj-jour,ccpp}
