@@ -8,6 +8,12 @@
 \newcommand{\lambdaobs}{\lambda_o}
 \newcommand{\lambdaemit}{\lambda_e}
 
+% typography
+\newcommand{\latin}[1]{\textsl{#1}}
+\providecommand{\ie}{\latin{i.e.}}
+\providecommand{\eg}{\latin{e.g.}}
+\providecommand{\cf}{\latin{cf.}}
+
 \begin{document}
 
 \title{\scalebox{1.5}{The \kcorrection}}
@@ -65,7 +71,7 @@ In what follows, we consider a source observed at redshift $z$,
 meaning that a photon observed to have frequency $\nuobs$ was emitted
 by the source at frequency $\nuemit$ with
 \begin{equation}
-\nuemit = \nuobs\,[1+z] \;\;\;.
+\nuemit = [1+z]\,\nuobs \;\;\;.
 \end{equation}
 The apparent flux of the source is imagined to be measured through a
 finite observed-frame bandpass $R$ and the intrinsic luminosity is
@@ -76,7 +82,7 @@ Technically, the \kcorrection\ described here includes a slight
 generalization from the original conception: The observed and
 emitted-frame bandpasses are permitted to have arbitrarily different
 shapes and positions in frequency space \citep[as they are in,
-eg,][]{kim96a}.  In addition, the equations below permit the different
+\eg,][]{kim96a}.  In addition, the equations below permit the different
 bandpasses to be calibrated to different standard sources.
 
 \section{Equations}
@@ -93,7 +99,7 @@ where $DM$ is the distance modulus, defined by
 \begin{equation}
 DM = 5\,\log_{10}\left[\frac{D_L}{10~\mathrm{pc}}\right] \;\;\;,
 \end{equation}
-where $D_L$ is the luminosity distance \citep[eg,][]{hogg99cosm} and
+where $D_L$ is the luminosity distance \citep[\eg,][]{hogg99cosm} and
 $1~\mathrm{pc}= 3.086\times 10^{16}~\mathrm{m}$.
 
 The apparent magnitude $m_R$ of the source is related to its spectral
@@ -128,11 +134,11 @@ been properly computed, there is no need to write different integrals
 for photon counters and bolometers.  Note that there is an implicit
 assumption here that detector nonlinearities have been corrected.
 
-The absolute magnitude $M_Q$ can be defined to be the apparent
-magnitude that the source \emph{would} have if it were
-$10~\mathrm{pc}$ away, at rest (ie, not redshifted), and compact.  It
-is related to the spectral density of the luminosity $L_{\nu}(\nu)$
-(energy per unit time per unit frequency) of the source by
+The absolute magnitude $M_Q$ is defined to be the apparent magnitude
+that the source \emph{would} have if it were $10~\mathrm{pc}$ away, at
+rest (\ie, not redshifted), and compact.  It is related to the
+spectral density of the luminosity $L_{\nu}(\nu)$ (energy per unit
+time per unit frequency) of the source by
 \begin{equation}
 M_Q = -2.5\,\log_{10}\left[
   \frac{\displaystyle
@@ -142,12 +148,12 @@ M_Q = -2.5\,\log_{10}\left[
           \int\frac{\mathrm{d}\nuemit}{\nuemit}\,g^Q_{\nu}(\nuemit)\,Q(\nuemit)}
 \right] \;\;\;,
 \end{equation}
-where the integrals are over emitted (ie, rest-frame) frequencies
+where the integrals are over emitted (\ie, rest-frame) frequencies
 $\nuemit$, $D_L$ is the luminosity distance, and $Q(\nu)$ is the
 equivalent of $R(\nu)$ but for the bandpass $Q$.  As mentioned above,
 this does not require $Q=R$, so this will lead to, technically, a
 generalization of the \kcorrection.  In addition, since the $Q$ and
-$R$ bands can be zero-pointed to different standard sources (eg, if
+$R$ bands can be zero-pointed to different standard sources (\eg, if
 $R$ is Vega-relative and $Q$ is AB), it is not necessary that
 $g^Q_{\nu}=g^R_{\nu}$.
 
@@ -158,7 +164,7 @@ its flux by
 L_{\nu}(\nuemit) = \frac{4\pi\,D_L^2}{1+z}\,f_{\nu}(\nuobs) \;\;\;,
 \end{equation}
 \begin{equation}
-\nuemit = \nuobs\,[1+z] \;\;\;.
+\nuemit = [1+z]\,\nuobs \;\;\;.
 \end{equation}
 The factor of $(1+z)$ in the luminosity expression
 (\ref{eq:luminosity}) accounts for the fact that the flux and
@@ -191,7 +197,7 @@ denominator.
 In equation (\ref{eq:kcorrection}), the \kcorrection\ was defined in
 terms of the apparent flux $f_{\nu}(\nu)$ in the observed frame.  This
 is the direct observable.  Most past discussions of the \kcorrection\
-\citep[eg,][]{oke68a, kim96a} write equations for the \kcorrection\ in
+\citep[\eg,][]{oke68a, kim96a} write equations for the \kcorrection\ in
 terms of either the flux or luminosity in the emitted frame.
 Transformation from observed-frame flux $f_{\nu}(\nuobs)$ to
 emitted-frame luminosity $L_{\nu}(\nuemit)$ gives
@@ -199,7 +205,7 @@ emitted-frame luminosity $L_{\nu}(\nuemit)$ gives
 \label{eq:kcorrectionL}
 K_{QR} = -2.5\,\log_{10}\left[[1+z]\,
   \frac{\displaystyle
-          \int\frac{\mathrm{d}\nuobs}{\nuobs}\,L_{\nu}(\nuobs[1+z])\,R(\nuobs)\,
+          \int\frac{\mathrm{d}\nuobs}{\nuobs}\,L_{\nu}([1+z]\nuobs)\,R(\nuobs)\,
           \int\frac{\mathrm{d}\nuemit}{\nuemit}\,g^Q_{\nu}(\nuemit)\,Q(\nuemit)}
        {\displaystyle
           \int\frac{\mathrm{d}\nuobs}{\nuobs}\,g^R_{\nu}(\nuobs)\,R(\nuobs)\,
@@ -229,7 +235,7 @@ K_{QR} = -2.5\,\log_{10}\left[\frac{1}{[1+z]}\,
        {\displaystyle
   \int\mathrm{d}\lambdaobs\,\lambdaobs\,g^R_{\lambda}(\lambdaobs)\,R(\lambdaobs)\,
     \int\mathrm{d}\lambdaemit\,\lambdaemit\,
-    f_{\lambda}(\lambdaemit[1+z])\,Q(\lambdaemit)}
+    f_{\lambda}([1+z]\lambdaemit)\,Q(\lambdaemit)}
 \right] \;\;\;,
 \end{equation}
 where, again, $R(\lambda)$ is defined to be the mean contribution to
@@ -283,16 +289,16 @@ functions $R(\nu)$ and $Q(\nu)$.  In most real astronomical
 situations, none of these is known to better than a few percent, often
 much worse.  Sometimes, use of the AB system seems reassuring
 (relative to, say, a Vega-relative system) because
-$g^\mathrm{AB}_{\nu}(\nu)$ is known (ie, defined), but this is a false
+$g^\mathrm{AB}_{\nu}(\nu)$ is known (\ie, defined), but this is a false
 sense: In fact the standard stars have been put on the AB system to
-the best available accuracy; this involves absolute spectrophotometry
-of at least some standard stars; this absolute flux information is
+the best available accuracy.  This involves absolute spectrophotometry
+of at least some standard stars, but this absolute flux information is
 rarely known to better than a few percent.  The expected deviations of
 the magnitudes given to the standard stars from a true AB system are
 equivalent to uncertainties in $g^\mathrm{AB}_{\nu}(\nu)$.
 
 The classical \kcorrection\ has $Q(\nu)=R(\nu)$ and
-$g^Q_{\nu}(\nu)=g^R_{\nu}(\nu)$..  This eliminates the integrals over
+$g^Q_{\nu}(\nu)=g^R_{\nu}(\nu)$.  This eliminates the integrals over
 the standard-source flux density $g^R_{\nu}(\nu)$.  However, it
 requires good knowledge of the source flux density $f_{\nu}(\nu)$ if
 the redshift is significant.  Many modern surveys try to get

@@ -10,7 +10,7 @@
 all: kcorrection.ps
 
 kcorrection.ps: kcorrection.tex
-	latex kcorrection; bibtex kcorrection; latex kcorrection; latex kcorrection; dvips kcorrection
+	latex kcorrection; bibtex kcorrection; latex kcorrection; latex kcorrection; dvips kcorrection -o
 
 clean:
 	$(RM) *.aux *.log *.bbl *.blg *.dvi *.eps \
