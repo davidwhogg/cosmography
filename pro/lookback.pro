@@ -38,8 +38,7 @@ function lookback, z,OmegaM,OmegaL
       for zz=0.5*dz,z,dz do t= t+dz*dlookbackdz(zz,OmegaM,OmegaL)
     endelse
   endif else begin
-;    help, nz
-    for i=0,nz-1 do t[i]= lookback(z[i],OmegaM,OmegaL)
+    for i=0L,nz-1L do t[i]= lookback(z[i],OmegaM,OmegaL)
   endelse
   return, t
 end
