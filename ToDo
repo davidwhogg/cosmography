@@ -1,6 +1,8 @@
 cosmography to-do list
 ----------------------
 
+NOTE: *always* update the \date{} command before sending to astro-ph!!
+
 References for 0.6<h<0.9?
 
 References for the three world models being all ruled out?
@@ -14,8 +16,9 @@ Switch to LaTeX 2e.
 
 Derivatives of the results with respect to parameters?
 
-Put in the quintessence; ie parameter w.  Figure out how to improve
-the code too.
+Improve the integrator?
+
+Put in the quintessence; ie parameter w?
 
 Put in the Deffayet model??
 
