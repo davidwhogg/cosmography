@@ -1,4 +1,5 @@
 all	0	#	make all plots for cosmography.tex
+		! cd ../src ; make makeplots ; ./makeplots
 		snap angdidis
 		snap dcomvoldz
 		snap distmod
@@ -6,6 +7,7 @@ all	0	#	make all plots for cosmography.tex
 		snap lookback
 		snap lumdis
 		snap propmotdis
+		! mv *.eps ../tex
 
 propmotdis 0	#	plot proper motion distance vs z
 		setup
@@ -13,7 +15,7 @@ propmotdis 0	#	plot proper motion distance vs z
 	#	limits 0 10 0 5 box
 		xlabel redshift z
 		ylabel proper motion distance  D\dM/D\dH
-		data propmotdis.out
+		data "../src/propmotdis.out"
 		read {z 1 a1 2 a2 3 a3 4}
 		connect z a1
 		ltype 1
@@ -28,7 +30,7 @@ angdidis 0	#	plot angular diameter distance vs z
 	#	limits 0 10 0 0.5 box
 		xlabel redshift z
 		ylabel angular diameter distance  D\dA/D\dH
-		data angdidis.out
+		data "../src/angdidis.out"
 		read {z 1 a1 2 a2 3 a3 4}
 		connect z a1
 		ltype 1
@@ -43,7 +45,7 @@ lookback 0	#	plot lookback and age vs z
 	#	limits 0 10 0 1.2 box
 		xlabel redshift z
 		ylabel lookback time  t\dL/t\dH  and age  t/t\dH
-		data age.out
+		data "../src/age.out"
 		read {z 1 a1 2 a2 3 a3 4}
 		connect z a1
 		ltype 1
@@ -51,7 +53,7 @@ lookback 0	#	plot lookback and age vs z
 		ltype 2
 		connect z a3
 		ltype 0
-		data lookback.out
+		data "../src/lookback.out"
 		read {z 1 a1 2 a2 3 a3 4}
 		connect z a1
 		ltype 1
@@ -67,7 +69,7 @@ distmod	0	#	plot distance modulus vs z
 		xlabel redshift z
 		ylabel distance modulus  DM + 5 log h  (mag)
 		define dH (3.0e8)
-		data lumdis.out
+		data "../src/lumdis.out"
 		read {z 1 d1 2 d2 3 d3 4}
 		set d1= 5.0*lg($dH*d1)
 		set d2= 5.0*lg($dH*d2)
@@ -85,7 +87,7 @@ lumdis	0	#	plot luminosity distance vs z
 	#	limits 0 10 0 50 box
 		xlabel redshift z
 		ylabel luminosity distance  D\dL/D\dH
-		data lumdis.out
+		data "../src/lumdis.out"
 		read {z 1 d1 2 d2 3 d3 4}
 		connect z d1
 		ltype 1
@@ -100,7 +102,7 @@ dcomvoldz 0	#	plot comoving volume element vs z
 	#	limits 0 10 0 1.5 box
 		xlabel redshift z
 		ylabel comoving volume element  [1/D\dH]\u3 dV\dC/dz/d\gW
-		data dcomvoldz.out
+		data "../src/dcomvoldz.out"
 		read {z 1 d1 2 d2 3 d3 4}
 		connect z d1
 		ltype 1
@@ -115,7 +117,7 @@ doptdepthdz 0	#	plot optical depth element vs z
 	#	limits 0 10 0 10 box
 		xlabel redshift z
 		ylabel dimensionless intersection probability  dP/dz
-		data doptdepthdz.out
+		data "../src/doptdepthdz.out"
 		read {z 1 d1 2 d2 3 d3 4}
 		connect z d1
 		ltype 1
