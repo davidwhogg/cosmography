@@ -1,0 +1,141 @@
+all	0	#	make all plots for cosmography.tex
+		snap angdidis
+		snap dcomvoldz
+		snap distmod
+		snap doptdepthdz
+		snap lookback
+		snap lumdis
+		snap propmotdis
+
+propmotdis 0	#	plot proper motion distance vs z
+		setup
+		limits 0 5 0 3 box
+	#	limits 0 10 0 5 box
+		xlabel redshift z
+		ylabel proper motion distance  D\dM/D\dH
+		data propmotdis.out
+		read {z 1 a1 2 a2 3 a3 4}
+		connect z a1
+		ltype 1
+		connect z a2
+		ltype 2
+		connect z a3
+		ltype 0
+
+angdidis 0	#	plot angular diameter distance vs z
+		setup
+		limits 0 5 0 0.5 box
+	#	limits 0 10 0 0.5 box
+		xlabel redshift z
+		ylabel angular diameter distance  D\dA/D\dH
+		data angdidis.out
+		read {z 1 a1 2 a2 3 a3 4}
+		connect z a1
+		ltype 1
+		connect z a2
+		ltype 2
+		connect z a3
+		ltype 0
+
+lookback 0	#	plot lookback and age vs z
+		setup
+		limits 0 5 0 1.2 box
+	#	limits 0 10 0 1.2 box
+		xlabel redshift z
+		ylabel lookback time  t\dL/t\dH  and age  t/t\dH
+		data age.out
+		read {z 1 a1 2 a2 3 a3 4}
+		connect z a1
+		ltype 1
+		connect z a2
+		ltype 2
+		connect z a3
+		ltype 0
+		data lookback.out
+		read {z 1 a1 2 a2 3 a3 4}
+		connect z a1
+		ltype 1
+		connect z a2
+		ltype 2
+		connect z a3
+		ltype 0
+
+distmod	0	#	plot distance modulus vs z
+		setup
+		limits 0 5 40 50 box
+	#	limits 0 10 40 51 box
+		xlabel redshift z
+		ylabel distance modulus  DM + 5 log h  (mag)
+		define dH (3.0e8)
+		data lumdis.out
+		read {z 1 d1 2 d2 3 d3 4}
+		set d1= 5.0*lg($dH*d1)
+		set d2= 5.0*lg($dH*d2)
+		set d3= 5.0*lg($dH*d3)
+		connect z d1
+		ltype 1
+		connect z d2
+		ltype 2
+		connect z d3
+		ltype 0
+
+lumdis	0	#	plot luminosity distance vs z
+		setup
+		limits 0 5 0 16 box
+	#	limits 0 10 0 50 box
+		xlabel redshift z
+		ylabel luminosity distance  D\dL/D\dH
+		data lumdis.out
+		read {z 1 d1 2 d2 3 d3 4}
+		connect z d1
+		ltype 1
+		connect z d2
+		ltype 2
+		connect z d3
+		ltype 0
+
+dcomvoldz 0	#	plot comoving volume element vs z
+		setup
+		limits 0 5 0 1.1 box
+	#	limits 0 10 0 1.5 box
+		xlabel redshift z
+		ylabel comoving volume element  [1/D\dH]\u3 dV\dC/dz/d\gW
+		data dcomvoldz.out
+		read {z 1 d1 2 d2 3 d3 4}
+		connect z d1
+		ltype 1
+		connect z d2
+		ltype 2
+		connect z d3
+		ltype 0
+
+doptdepthdz 0	#	plot optical depth element vs z
+		setup
+		limits 0 5 0 6 box
+	#	limits 0 10 0 10 box
+		xlabel redshift z
+		ylabel dimensionless intersection probability  dP/dz
+		data doptdepthdz.out
+		read {z 1 d1 2 d2 3 d3 4}
+		connect z d1
+		ltype 1
+		connect z d2
+		ltype 2
+		connect z d3
+		ltype 0
+
+setup	0	#	general setup
+		window 1 1 1 1
+		expand 1.5
+		angle 0
+		lweight 3
+		ltype 0
+		ptype 0 0
+		lines 1 100001
+		location 4000 31000 3500 31000
+
+snap	1	#	make hardcopy
+		device postencap $1.eps
+		$1
+		hardcopy
+		device x11
