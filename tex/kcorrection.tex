@@ -1,0 +1,121 @@
+% This is a LaTeX file
+% by David W. Hogg
+
+\documentclass[12pt,preprint]{aastex}
+
+\begin{document}
+
+\title{K-corrections}
+\author{David W. Hogg, Michael Blanton, Daniel J. Eisenstein}
+
+\section{Definitions and notation}
+
+Consider a source observed to have apparent magnitude $m_R$ when
+observed through photometric bandpass $R$, for which we wish to know
+its absolute magnitude $M_Q$ in emitted-frame bandpass $Q$.  In
+classical work on k-corrections, $R$ and $Q$ would be identical, but
+in the age of high-redshift observations, this is often not the case.
+The k-correction $K_{QR}(z)$ for this source is defined by
+\begin{equation}
+\label{eq:definition}
+m_R = M_Q + DM(z) + K_{QR}(z) \;\;\;,
+\end{equation}
+where $DM(z)$ is the distance modulus, defined by
+\begin{equation}
+DM(z) = 5\,\log_{10}\left[\frac{D_L^2}{(10~\mathrm{pc})^2}\right] \;\;\;,
+\end{equation}
+where $D_L$ is the luminosity distance \citep[eg,][and references
+therein]{hogg99cosm}.
+
+The apparent magnitude $m_R$ of the source is related to its spectral
+density of flux $f(\nu)$ (power per unit area per unit frequency) by
+\begin{equation}
+m_R = -2.5\,\log_{10}\left[
+  \frac{\int\frac{\mathrm{d}\nu_o}{\nu_o}\,f(\nu_o)\,R(\nu_o)}
+       {\int\frac{\mathrm{d}\nu_o}{\nu_o}\,g(\nu_o)\,R(\nu_o)}
+\right] \;\;\;,
+\end{equation}
+where the integrals are over the observed frequencies $\nu_o$;
+$g(\nu)$ is the spectral energy distribution of the ``standard
+source'', which, for Vega-relative magnitudes, is Vega (or a weighted
+sum of a certain set of A0 stars), and, for AB magnitudes, is a
+theoretical constant source with $g(\nu_o)=3631~\mathrm{Jy}$ (where
+$1~\mathrm{Jy}= 10^{-??}~\mathrm{W\,m^{-2}\,s^{-1}\,Hz^{-1}}$) at all
+frequencies $\nu$; and $R(\nu)$ describes the bandpass, as follows:
+
+The value of $R(\nu)$ at each freqency $\nu$ is the average
+contribution of a photon of frequency $\nu$ to the output signal from
+the detector.  If the detector is a photon counter, like a CCD, then
+$R(\nu)$ is just the probability that a photon of frequency $\nu_o$
+gets counted.  If the detector is a bolometer or calorimeter, then
+$R(\nu)$ is just the fraction of photons of energy $\nu$ that get
+absorbed into the detector, times the energy deposition $h\,\nu$ per
+photon.  If $R(\nu)$ has been properly computed, there is no need to
+write different integrals for photon counters and bolometers.
+
+The absolute magnitude $M_Q$ is related to the spectral density of the
+luminosity $L(\nu)$ (power per unit frequency) of the source by
+\begin{equation}
+m_R = -2.5\,\log_{10}\left[
+  \frac{\int\frac{\mathrm{d}\nu_e}{\nu_e}\,L(\nu_e)\,             Q(\nu_e)}
+       {\int\frac{\mathrm{d}\nu_e}{\nu_e}\,4\pi\,D_L^2\,g(\nu_e)\,Q(\nu_e)}
+\right] \;\;\;,
+\end{equation}
+where the integrals are over emitted frequencies $\nu_e$, $D_L$ is the
+luminosity distance, and $Q(\nu)$ is the equivalent of $R(\nu)$ but
+for the bandpass $Q$.  As mentioned above, we are not requiring that
+$Q=R$, so this is, technically, a generalization of the k-correction.
+If the source is at redshift $z$, then
+\begin{equation}
+L(\nu_e) = \frac{4\pi\,D_L^2}{1+z}\,f(\nu_o) \;\;\;,
+\end{equation}
+where the factor of $(1+z)$ accounts for the fact that the flux is not
+bolometric but flux density per unit freqency.  The factor would
+appear in the numerator if we were using flux density per unit
+wavelength.  There would be no factor if we were using flux density
+per unit logarithm of frequency
+
+Equation (\ref{eq:definition}) holds if the k-correction $K_{QR}(z)$
+is
+\begin{equation}
+\label{eq:kcorrection}
+K_{QR}(z) = -2.5\,\log_{10}\left[
+  \frac{\int\frac{\mathrm{d}\nu_o}{\nu_o}\,f(\nu_o)\,R(\nu_o)\,
+        \int\frac{\mathrm{d}\nu_e}{\nu_e}\,
+          g(\nu_e)\,Q(\nu_e)}
+       {\int\frac{\mathrm{d}\nu_o}{\nu_o}\,g(\nu_o)\,R(\nu_o)\,
+        \int\frac{\mathrm{d}\nu_e}{\nu_e}\,\frac{1}{1+z}\,
+          f\left(\frac{\nu_e}{1+z}\right)\,Q(\nu_e)}
+\right] \;\;\;,
+\end{equation}
+where factors of $4\pi\,D_L^2$ have been cancelled out.  This
+(\ref{eq:kcorrection}) can be taken to be an operational definition,
+therefore, of the k-correction, from observations through bandpass $R$
+of a source whose absolute magnitude $M_Q$ through bandpass $Q$ is
+desired.
+
+\section{Discussion}
+
+To compute an accurate k-correction, one needs an accurate description
+of the source flux density $f(\nu)$, the standard-source flux density
+$g(\nu)$, and the filter curves $R(\nu)$ and $Q(\nu)$.  In most real
+astronomical situations, none of these is known to better than a few
+percent, often much worse.  Sometimes, use of the AB system seems
+reassuring because $g(\nu)$ is known (ie, defined), but this is a
+false sense, since in fact there is an uncertainty about the absolute
+calibrations of the actual standard stars used, which is equivalent to
+an uncertainty in $g(\nu)$.  Again, for many experiments, this
+uncertainty is larger than a few percent.
+
+The classical k-correction has $R(\nu)=Q(\nu)$.  This eliminates the
+integrals over the standard-source flux density $g(\nu)$.  However, it
+requires good knowledge of the source flux density $f(\nu)$ if the
+redshift is significant.  Many modern surveys try to get $R(\nu)\sim
+Q([1+z]\nu)$ so as to weaken dependence on $f(\nu)$, which can be
+complicated or unknown.  This requires good knowledge of the standard
+sources if the redshift is significant.
+
+\bibliographystyle{../../nyu-astro/tex/apj}
+\bibliography{../../nyu-astro/tex/apj-jour,../../nyu-astro/tex/ccpp}
+
+\end{document}
