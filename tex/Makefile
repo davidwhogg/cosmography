@@ -1,3 +1,12 @@
+# makefile for latex+bibtex+dvips
+#
+# bugs:
+#  - doesn't always re-run bibtex if only the .bib file has changed
+#  - harsh "clean"
+#
+# revision history:
+# 2002-07-25  written - Hogg (NYU)
+
 LATEX = latex
 BIBTEX = bibtex
 DVIPS = dvips
@@ -17,5 +26,5 @@ all: kcorrection.ps
 	dvips $< -o $@
 
 clean:
-	$(RM) *.aux *.log *.bbl *.blg *.dvi \
+	$(RM) *.aux *.log *.bbl *.blg *.dvi *.eps \
 	kcorrection.ps cosmography.ps
