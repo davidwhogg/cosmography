@@ -22,5 +22,6 @@
 ;   25-Jun-2000  Written by Hogg (IAS)
 ;-
 function dcomdisdz, z,OmegaM,OmegaL
-  return, (1.0/sqrt((1.0+z)*(1.0+z)*(1.0+OmegaM*z)-z*(2.0+z)*OmegaL))
+  return, ((1.D)/sqrt(((1.D)+z)*((1.D)+z)*((1.D)+OmegaM*z)-z*((2.0D)+z) $
+                      *OmegaL))
 end

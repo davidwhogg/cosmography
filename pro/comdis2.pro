@@ -47,18 +47,18 @@ function comdis2, z,OmegaM,OmegaL,cdtable=cdtable,zmaxtable=zmaxtable
   endelse
 
 ; Set it up:
-  TINY= double(1.0e-16)
+  TINY= double(1.0D-16)
   if(resettable gt 0) then begin
       stepsize= 0.001D           ; minimum stepsize of 0.001
       nsteps= long(zmaxtable/stepsize)+10 ; minimum of 10 steps
-      if(zmaxtable lt max(z)) then zmaxtable=1.5d*max(z)
+      if(zmaxtable lt max(z)) then zmaxtable=1.5D*max(z)
       cdtable={cdstruct, zmaxtable:double(zmaxtable), OmegaM:double(OmegaM), $
                OmegaL:double(OmegaL), nsteps:long(nsteps), $
                zval:dblarr(nsteps), dC:dblarr(nsteps)}
       cdtable.zval=cdtable.zmaxtable*dindgen(nsteps)/double(nsteps)
-      hzval=0.5*(cdtable.zval[1l:nsteps-1l]+cdtable.zval[0l:nsteps-2l])
+      hzval=0.5D*(cdtable.zval[1l:nsteps-1l]+cdtable.zval[0l:nsteps-2l])
       dz=cdtable.zval[1]-cdtable.zval[0]
-      cdtable.dC[0]=double(0.0*zmaxtable)
+      cdtable.dC[0]=double(0.0D*zmaxtable)
       for iz=1l,cdtable.nsteps-1l do $
           cdtable.dC[iz]= cdtable.dC[iz-1]+ $
         dz*dcomdisdz(hzval[iz-1],OmegaM,OmegaL)
