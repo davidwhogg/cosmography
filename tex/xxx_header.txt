@@ -1,0 +1,17 @@
+To: astro-ph@xxx.lanl.gov
+Cc: hogg
+Subject: replace 9905116
+
+\\
+Title: Distance measures in cosmology
+Authors: David W. Hogg (IAS)
+Comments: This short and purely pedagogical text is not submitted anywhere but
+  here.  Errors reported to the author will be rewarded with gratitude and
+  acknowledgements.
+\\
+Formulae for the line-of-sight and transverse comoving distances, proper
+motion distance, angular diameter distance, luminosity distance, k-correction,
+distance modulus, comoving volume, lookback time, age, and object intersection
+probability are all given, some with justifications.  Some attempt is made to
+rationalize disparate terminologies, or at least abuse bad usage.
+\\
