@@ -2,16 +2,18 @@
 % by David W. Hogg
 
 \documentclass[preprint]{aastex}
+\newcommand{\kcorrection}{$K$~correction}
+\newcommand{\kcorrections}{{\kcorrection}s}
 
 \begin{document}
 
-\title{K corrections}
+\title{\kcorrections}
 \author{
   David W. Hogg\altaffilmark{1,2},
   Michael Blanton\altaffilmark{1},
   Daniel J. Eisenstein\altaffilmark{3},
   and Ivan K. Baldry\altaffilmark{4}\\
-  \textsl{second draft---2002 July 29}
+  \textsl{third draft---2002 July 30}
 }
 \altaffiltext{1}{
   Center for Cosmology and Particle Physics,
@@ -31,7 +33,7 @@
 }
 
 \begin{abstract}
-The k~correction, used in relating the rest-frame absolute magnitude
+The \kcorrection, used in relating the rest-frame absolute magnitude
 in one broad photometric bandpass to the observed-frame apparent
 magnitude in another broad bandpass, is described.
 \end{abstract}
@@ -44,10 +46,10 @@ that recession velocities can be translated into radial distances
 challenge that sources observed at different redshifts are sampled, by
 any particular instrument, at different rest-frame frequencies.  The
 transformations between observed and rest-frame broad-band photometric
-measurements are known as ``k~corrections'' \citep{oke68a}.
-Technically, the k~corrections described here include a slight
-generalization from the original conception: here the observed and
-rest-frame bandpasses are permitted to have arbitrarily different
+measurements are known as ``\kcorrections'' \citep*{humason56a,
+oke68a}.  Technically, the \kcorrections\ described here include a
+slight generalization from the original conception: here the observed
+and rest-frame bandpasses are permitted to have arbitrarily different
 shapes and positions in frequency space.
 
 \section{Equations}
@@ -55,7 +57,7 @@ shapes and positions in frequency space.
 Consider a source observed to have apparent magnitude $m_R$ when
 observed through photometric bandpass $R$, for which one wishes to
 know its absolute magnitude $M_Q$ in emitted-frame bandpass $Q$.  The
-k~correction $K_{QR}(z)$ for this source is \emph{defined} by
+\kcorrection\ $K_{QR}(z)$ for this source is \emph{defined} by
 \begin{equation}
 \label{eq:definition}
 m_R = M_Q + DM + K_{QR}(z) \;\;\;,
@@ -114,7 +116,7 @@ where the integrals are over emitted (ie, rest-frame) frequencies
 $\nu_e$, $D_L$ is the luminosity distance, and $Q(\nu)$ is the
 equivalent of $R(\nu)$ but for the bandpass $Q$.  As mentioned above,
 this does not require $Q=R$, so this is, technically, a generalization
-of the k~correction.
+of the \kcorrection.
 
 If the source is at redshift $z$, then its luminosity is related to
 its flux by
@@ -126,7 +128,7 @@ luminosity are not bolometric but densities per unit freqency.  The
 factor would appear in the numerator if the expression related flux
 and luminosity densities per unit wavelength.
 
-Equation (\ref{eq:definition}) holds if the k~correction $K_{QR}(z)$
+Equation (\ref{eq:definition}) holds if the \kcorrection\ $K_{QR}(z)$
 is
 \begin{equation}
 \label{eq:kcorrection}
@@ -143,7 +145,7 @@ K_{QR}(z) = -2.5\,\log_{10}\left[(1+z)\,
 [SHOULD WE COMMENT ON THE $(1+z)$ FACTOR??]
 
 Equation (\ref{eq:kcorrection}) can be taken to be an operational
-definition, therefore, of the k~correction, from observations through
+definition, therefore, of the \kcorrection, from observations through
 bandpass $R$ of a source whose absolute magnitude $M_Q$ through
 bandpass $Q$ is desired.  In principle, if the $R$ and $Q$ have
 different zeropoint definitions (eg, if $R$ is Vega-relative and $Q$
@@ -158,7 +160,7 @@ $f_{\lambda}(\lambda)$ per unit wavelength using
 \begin{equation}
 \nu\,f_{\nu}(\nu) = \lambda\,f_{\lambda}(\lambda) \;\;\;.
 \end{equation}
-The k~correction becomes
+The \kcorrection\ becomes
 \begin{equation}
 K_{QR}(z) = -2.5\,\log_{10}\left[\frac{1}{(1+z)}\,
   \frac{\displaystyle
@@ -180,7 +182,7 @@ $g_{\lambda}(\lambda)\propto\lambda^{-2}$.
 
 \section{Discussion}
 
-To compute an accurate k~correction, one needs an accurate description
+To compute an accurate \kcorrection, one needs an accurate description
 of the source flux density $f_{\nu}(\nu)$, the standard-source flux
 density $g_{\nu}(\nu)$, and the bandpasses $R(\nu)$ and $Q(\nu)$.  In
 most real astronomical situations, none of these is known to better
@@ -192,7 +194,7 @@ of the actual standard stars used, which is equivalent to an
 uncertainty in $g_{\nu}(\nu)$.  Again, for most experiments, this
 uncertainty is larger than a few percent.
 
-The classical k~correction has $R(\nu)=Q(\nu)$.  This eliminates the
+The classical \kcorrection\ has $R(\nu)=Q(\nu)$.  This eliminates the
 integrals over the standard-source flux density $g_{\nu}(\nu)$.
 However, it requires good knowledge of the source flux density
 $f_{\nu}(\nu)$ if the redshift is significant.  Many modern surveys
