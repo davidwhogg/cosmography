@@ -1,0 +1,320 @@
+% This is a LaTeX file
+% by David W. Hogg
+
+\documentstyle[12pt,fullpage,psfig]{article}
+
+% do latin stuff
+  \newcommand{\latin}[1]{\textit{#1}}
+  \newcommand{\etal}{\latin{et~al}}
+  \newcommand{\etc}{\latin{etc.}}
+  \newcommand{\ie}{\latin{i.e.}}
+
+\begin{document}
+\title{Magnitude systems\footnote{
+Originally published as Appendix A in David W. Hogg, 1998, \textit{On
+the evolution of field galaxies}, PhD Thesis, California Institute of
+Technology.}}
+\author{David W. Hogg}
+\date{1997 November}
+\maketitle
+
+\section{Vega-relative magnitudes}
+
+The system of {\em apparent magnitudes,\/} or simply {\em
+magnitudes,\/} is a logarithmic flux scale, defined such that the
+standard star Vega has magnitude zero in all bands.  If Vega has flux
+$S_0$ in some band, an object with flux $S$ is assigned the magnitude
+$m=-2.5\log(S/S_0)$.  Brighter objects have smaller magnitudes.  The
+magnitude definitions and absolute calibrations (\ie, zeropoints or
+Vega fluxes) used in this dissertation are given in
+Table~\ref{tab:magtable}.
+
+Magnitudes are designed for relative measurements, which, given the
+poorly understood, constantly changing properties of the atmosphere,
+are the only robust and precise measurements possible with groundbased
+telescopes.  While it is straightforward (if, perhaps, not easy) to
+measure the relative fluxes of two astronomical objects at an accuracy
+of $10^{-3}$, it is very difficult to measure an absolute flux to
+better than about 5~percent.  Any such measurement requires accounting
+for absorption by the Earth's atmosphere (which is time- and
+airmass-dependent) and a precise ``laboratory'' calibration of the
+instrument plus telescope system used to detect the light.  For this
+reason, the absolute calibrations given in Table~\ref{tab:magtable}
+should be taken to be approximate.  An additional reason for caution
+is that the data in Table~\ref{tab:magtable} are largely from
+secondary sources.
+
+As an added bonus, the calibration chart used by Neugebauer (private
+communication) is given in Table~\ref{tab:gxnmagtable}.  The
+differences between Tables~\ref{tab:magtable} and
+\ref{tab:gxnmagtable} are small, even though they are
+based on at least partially independent information.
+
+
+% ----------------------------------------------------------------------------
+\section{A note on absolute calibration}
+\label{sec:hayes}
+
+Actually, the problem with absolute flux calibration of photometry
+goes deeper than the simple fact, mentioned in the previous Section,
+that it is difficult to measure.  The flux calibrations given in
+Tables~\ref{tab:magtable} and \ref{tab:gxnmagtable} in fact contain an
+arbitrary convention:
+
+The absolute calibration of the magnitude systems (the $S_{\nu}^{(0)}$
+values in Table~\ref{tab:magtable}) are given in terms of a flux
+density (flux per unit log frequency), which is defined only at a
+single point in the spectrum, while any photometric bandpass in fact
+has a finite width, and probably a non-trivial profile.  In practice,
+for each bandpass, an effective wavelength $\lambda_{\rm eff}$ is
+chosen, at which the zeropoint is correct.  How does one compute
+$\lambda_{\rm eff}$ for a given bandpass?  Should one take the mean of
+the transmission function?  If so, in wavelength space or frequency
+space or log-frequency space?  Different choices give different
+results.  Once a choice has been made, the calibration will only be
+exactly correct (in the sense that the true $S_{\lambda}$ of the
+source at $\lambda_{\rm eff}$ equals the photometrically-inferred
+value) for one particular spectral shape; all other spectral shapes
+will require a color-correction.  For example, a very red object might
+have all its flux in a bandpass coming from the very reddest ten
+percent of the bandpass, or even from a part of a long wavelength tail
+caused by a ``red leak'' in the filter.  For another, a source might
+be emitting all its flux in a single narrow line which does not happen
+to lie exactly at $\lambda_{\rm eff}$.  In practice, with visual and
+near-infrared bandpasses, these color-corrections are usually small
+because source spectra tend to be well-behaved and the usual
+bandpasses tend to be relatively narrow.  However, this is a
+fundamental limitation to the absolute calibration of broad-band
+photometric bandpasses, and another reason to treat all absolute
+calibrations with caution.
+
+Of course this abiguity can be seen as a blessing.  Given a bandpass,
+absolute calibration merely requires the (arbitrary?) choice of a
+$\lambda_{\rm eff}$ and someone else's painstakingly measured flux
+density $\log\lambda\,S_{\lambda}$ of Vega at that wavelength.  The
+best absolute calibration of Vega in the visual as of this
+dissertation is due to Hayes (1985) and shown in
+Figure~\ref{fig:hayes}; it is what was used to calibrate the
+photographic and Gunn bandpasses in Table~\ref{tab:magtable}.
+
+
+% ----------------------------------------------------------------------------
+\section{Absolute magnitudes}
+
+The absolute magnitude $M$ is a measure of luminosity.  It is the apparent
+magnitude the object would have if it were at 10~pc distance, so
+\begin{equation}
+M = m - 5\,\log\left(\frac{D}{\rm 10~pc}\right)
+\end{equation}
+where $D$ is the luminosity distance to the object (ignoring
+k-correction).  Because Vega is rougly at 10~pc distance, this system
+is also more-or-less Vega-relative.  Because all observable
+extragalactic objects are far more luminous than Vega, their absolute
+magnitudes will all be negative.
+
+To convert the flux calibrations given in Table~\ref{tab:magtable}
+into luminosity calibrations, \ie, log luminosities
+$\log(\nu\,L_{\nu}^{(0)})$, in Watts, of an absolute magnitude $M=0$
+object, simply add the logarithm of $4\pi(10~{\rm pc})^2$ in meters,
+or $36.08$.
+
+
+% ----------------------------------------------------------------------------
+\section{``AB'' magnitudes}
+
+The ``AB'' magnitude system was designed to have absolute calibrations
+which are the same in $f_{\nu}$ for all bands, instead of having
+calibrations equal to the flux of Vega in each band.  By definition,
+AB and Vega-relative magnitudes are equal in the $V$ band.  Note that
+construction of the AB system requires absolute calibration of the
+magnitude scales, so correct AB magnitudes cannot known any better
+than the flux calibrations, despite the fact that Vega-relative
+magnitudes can be known to arbitrary accuracy.  This fact alone
+reccomends against using AB magnitudes except in special
+circumstances.  Furthermore, as discussed above, there is a
+conventional or arbitrary component to the flux calibration!
+
+To compute an AB calibration in the units employed in
+Table~\ref{tab:magtable}, take the $V$-band calibration, add $\log\nu$
+for the band in question, and subtract $\log\nu$ for the $V$ band.
+So, for instance, the $K_{AB}$ calibration is $\log(\nu
+S_{\nu}^{(0)})=-8.31$ (in ${\rm W\,m^{-2}}$).
+
+
+% ----------------------------------------------------------------------------
+\section{Transformations between magnitudes}
+
+Frequently a transformation between different magnitudes is required,
+for example when the $V$ and $I$-band magnitudes of a source are known
+and the $R$-band needs to be predicted.  In this case some assumption
+needs to be made about the spectral energy distribution of the source.
+For extragalactic work the best assumption is that the distribution is
+a power law, $\nu\,f_{\nu}\propto\nu^n$.  Then, to a reasonable
+approximation, the $R$-band flux can be found by interpolating between
+the $V$ and $I$-band fluxes (found using the absolute calibrations of
+the $V$ and $I$ bands) on a log-log plot.  The $R$-band absolute
+calibration is then applied to get an $R$-band magnitude.  This
+procedure generalizes to the following rule:
+
+To get the best estimate of a magnitude $m_C$ in band $C$ given
+magnitudes $m_A$ and $m_B$ in bands $A$ and $B$, use
+\begin{equation}
+m_C=a\,m_A+b\,m_B+c
+\end{equation}
+where
+\begin{eqnarray}
+a & = & \frac{\log\nu_C-\log\nu_B}{\log\nu_A-\log\nu_B} \\
+b & = & \frac{\log\nu_A-\log\nu_C}{\log\nu_A-\log\nu_B} \\
+c & = & -2.5\,(a\,Z_A+b\,Z_B-Z_C)
+\end{eqnarray}
+where the $\log\nu_i$ are the effective wavelengths of each band $i$
+and the $Z_i$ are the absolute calibrations $\log[\nu\,f_{\nu}^{(0)}]$.
+
+
+% ----------------------------------------------------------------------------
+\section*{Acknowledgements}
+\addcontentsline{toc}{section}{Acknowledgements}
+
+Thanks go to Gerry Neugebauer for providing zeropoints and for
+pointing out the fundamental ambiguity in absolute calibration.
+
+
+% ----------------------------------------------------------------------------
+\section*{References}
+\addcontentsline{toc}{section}{References}
+\begin{list}{}{
+  \item \rightmargin=0in
+  \leftmargin=0.25in
+  \topsep=0ex
+  \partopsep=0pt
+  \itemsep=1ex
+  \parsep=0pt
+  \itemindent=-1.0\leftmargin
+  \listparindent=\leftmargin
+}
+\item
+Fukugita M., Shimasaku K. \& Ichikawa T., 1995, Galaxy colors in
+various photometric band systems, PASP 107 945
+\item
+Hayes D. S., 1985, Stellar absolute fluxes and energy distributions
+from 0.32 to 4.0 $\mu$m, in Hayes D. S. \etal\, eds., {\em Proc IAU
+111: Calibration of Fundamental Stellar Quantities,} Kluwer,
+Dordrecht, 225
+\item
+Holtzman J. A., Burrows C. J., Casertano S., Hester J. J., Trauger J.
+T., Watson A. M. \& Worthey G., 1995, The photometric performance and
+calibration of WFPC2, PASP 107 1065
+\item
+Steidel C. C. \& Hamilton D., 1993, Deep imaging of high redshift QSO
+fields below the lyman limit II:\ Number counts and colors of field
+galaxies, AJ 105 2017
+\item
+Zombeck M. V., 1990, {\it Handbook of Space Astronomy and
+Astrophysics,\/} Cambridge University, Cambridge
+\end{list}
+
+
+% ----------------------------------------------------------------------------
+\clearpage
+\begin{table}[p]
+\begin{center}
+\begin{tabular}{cllll}
+band & $\lambda_{\rm eff}$ & $\Delta\lambda$ & $\log\nu$ & $\log\nu\,S_{\nu}^{(0)}$ \\
+     & ($\mu{\rm m}$) & ($\mu{\rm m}$) & (Hz)  & (${\rm W\,m^{-2}}$) \\[0.5ex]
+\hline
+$F300W$  & 0.29  & 0.073 & 15.01 & $-7.98$ \\
+$U_n$    & 0.36  &       & 14.92 & $-7.89$ \\
+$U$      & 0.365 & 0.068 & 14.91 & $-7.81$ \\
+$B$      & 0.44  & 0.098 & 14.83 & $-7.54$ \\
+$F450W$  & 0.45  & 0.096 & 14.82 & $-7.54$ \\
+$B_J$    & 0.46  & 0.15  & 14.81 & $-7.56$ \\
+$G$      & 0.48  &       & 14.80 & $-7.61$ \\
+$V$      & 0.55  & 0.089 & 14.74 & $-7.70$ \\
+$F606W$  & 0.59  & 0.15  & 14.71 & $-7.77$ \\
+$r$      & 0.65  & 0.089 & 14.66 & $-7.86$ \\
+$\cal R$ & 0.69  &       & 14.64 & $-7.92$ \\
+$R$      & 0.70  & 0.22  & 14.63 & $-7.91$ \\
+$F814W$  & 0.79  & 0.15  & 14.58 & $-8.03$ \\
+$I$      & 0.90  & 0.24  & 14.52 & $-8.12$ \\
+$J$      & 1.25  & 0.3   & 14.38 & $-8.40$ \\
+$H$      & 1.65  & 0.4   & 14.26 & $-8.71$ \\
+$K_s$    & 2.15  & 0.3   & 14.14 & $-9.01$ \\
+$K$      & 2.2   & 0.4   & 14.13 & $-9.04$ \\
+$L$      & 3.6   & 1.2   & 13.92 & $-9.65$ \\
+\end{tabular}
+\end{center}
+\caption[Vega-relative magnitude wavelengths, frequencies and absolute calibrations.]{
+The Vega-relative magnitude wavelengths, frequencies and absolute
+calibrations used in this dissertation.  The full width (\ie, not
+half width) of the bandpass is symbolized $\Delta\lambda$.
+Frequencies are given in Hz and absolute calibrations are given in
+flux per unit ln wavelength $\nu\,S_{\nu}=\lambda\,S_{\lambda}$.  Data
+for the custom HST bandpass magnitudes ($F300W$ \etc) are from
+Holtzman \etal\ (1995).  Data for $U_n$, $G$ and $\cal R$ are from
+Steidel \& Hamilton (1993; where the Vega-relative calibration on
+their AB system is given with the wrong sign---when corrected it
+provides the above calibrations).  Filter information for $B_J$ and
+$r$ are from Fukugita \etal\ (1995), while the calibrations are my own
+calculation (using data in Hayes 1985 and the method described in
+Section~\ref{sec:hayes}).  Filter information for $K_s$ come from
+Neugebauer (private communication) and the calibration from assuming
+that Vega is a hot blackbody in the region of the $K$ band.  Data for
+the remaining Johnson magnitudes are from a (very) secondary source
+(Zombeck 1990).  No calibration should be treated with any more
+respect than it deserves (see text).}
+\label{tab:magtable}
+\end{table}
+
+\begin{table}[p]
+\begin{verbatim}
+                                                  11 Dec 81, GXN
+                                                  updated 9 Mar 97
+
+                      ABSOLUTE CALIBRATION
+
+                                      Zero magnitude
+Band    lam     log[nu]         flam    fnu    log[fnu]  m0   notes
+        eff                     1E-11   Jy
+        mu      log[Hz]        W/m2 mu        lg[W/m2Hz] mag
+U       0.36    14.92           3980    1720    -22.76  15.59   1
+B       0.43    14.84           7285    4490    -22.35  16.63   1
+V       0.548   14.74           3526    3530    -22.45  16.37   2
+R       0.7     14.63           1702    2780    -22.56  16.11   1
+I       0.9     14.52           830     2240    -22.65  15.88   1
+J       1.25    14.38           303     1578    -22.80  15.50   2
+H       1.65    14.26           115     1041    -22.98  15.04   2
+K       2.2     14.13           40      646     -23.19  14.53   2
+L       3.5     13.93           6.8     278     -23.56  13.61   2
+L'      3.7     13.91           5.5     251     -23.60  13.50   2
+M       4.8     13.80           2.02    155     -23.81  12.98   2
+N       10.1    13.47           0.109   37      -24.43  11.42   3
+O       20.2    13.17           0.0074  10      -25.00  10.00   3
+
+ AB == -2.5 * log f nu - 56.13
+ log[f nu(mJy)] == (m0 - m)*0.4
+
+ Vega defined as 0 Mag for V and 1.25 <= lambda <= 4.8 mu.
+
+ 1) Hayes 1979, Dudley Obs. RN. 14, 297.
+ 2) Vega flux from Oke and Shild 1970, Ap.J., 161, 1015.
+    Kurucz, Peytreman and Avrett model 1972.
+ 3) Becklin 1972 calibration.
+\end{verbatim}
+\caption[Neugebauer's Vega-relative magnitude wavelengths, frequencies
+and zeropoints.]{
+Vega-relative magnitude wavelengths, frequencies and zeropoints
+according to Neugebauer (private communication).}
+\label{tab:gxnmagtable}
+\end{table}
+
+\begin{figure}
+\psfig{figure=hayespretty.eps,width=\textwidth}
+\caption[The Hayes (1985) calibrated spectrum of Vega.]{
+The Hayes (1985) calibrated spectrum of Vega, plotted in
+$\log\lambda\,S_{\lambda}=\log\nu\,S_{\nu}$, in SI units.  As
+described in the text, Vega-relative broad-band photometry can be
+calibrated with this spectrum.}
+\label{fig:hayes}
+\end{figure}
+
+\end{document}
