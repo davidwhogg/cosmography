@@ -14,6 +14,9 @@ Switch to LaTeX 2e.
 
 Derivatives of the results with respect to parameters?
 
-Put in the quintessence or other models -- at least a discussion about
-how you would compute in one of these other models.
+Put in the quintessence; ie parameter w.  Figure out how to improve
+the code too.
 
+Put in the Deffayet model??
+
+Get IDL code fully functional and make the repository publicly readable?
