@@ -15,6 +15,8 @@
 \newcommand{\kcorrections}{{\kcorrection}s}
 \newcommand{\nuobs}{\nu_o}
 \newcommand{\nuemit}{\nu_e}
+\newcommand{\lambdaobs}{\lambda_o}
+\newcommand{\lambdaemit}{\lambda_e}
 
 \begin{document}
 
@@ -24,7 +26,7 @@
   Michael Blanton\altaffilmark{1},
   Daniel J. Eisenstein\altaffilmark{3},
   and Ivan K. Baldry\altaffilmark{4}\\
-  \textsl{third draft---2002 July 30}
+  \textsl{fourth draft---2002 August 15}
 }
 \altaffiltext{1}{
   Center for Cosmology and Particle Physics,
@@ -44,11 +46,11 @@
 }
 
 \begin{abstract}
-The \kcorrection\ is used to relate the rest-frame absolute magnitude
-of a source in one broad photometric bandpass to the observed-frame
-apparent magnitude of the same source in another broad bandpass.  This
-short paper provides definitions, equations and pedagogical discussion
-related to the \kcorrection.
+The \kcorrection\ is used to relate the emitted- or rest-frame
+absolute magnitude of a source in one broad photometric bandpass to
+the observed-frame apparent magnitude of the same source in another
+broad bandpass.  This short paper provides definitions, equations and
+pedagogical discussion related to the \kcorrection.
 \end{abstract}
 
 \section{Introduction}
@@ -66,9 +68,20 @@ Here we define the \kcorrection\ and give equations for its
 calculation, with the goals of explanation, clarification, and
 standardization of terminology.
 
-Technically, the \kcorrections\ described here include a slight
+In what follows, we consider a source observed at redshift $z$,
+meaning that a photon observed to have frequency $\nuobs$ was emitted
+by the source at frequency $\nuemit$ with
+\begin{equation}
+\nuemit = \nuobs\,[1+z] \;\;\;.
+\end{equation}
+The apparent flux of the source is imagined to be measured through an
+observed-frame bandpass $R$ and the intrinsic luminosity is imagined
+to be measured through a emitted-frame bandpass $Q$.  The
+\kcorrection\ is used to relate these two quantites.
+
+Technically, the \kcorrection\ described here includes a slight
 generalization from the original conception: The observed and
-rest-frame bandpasses are permitted to have arbitrarily different
+emitted-frame bandpasses are permitted to have arbitrarily different
 shapes and positions in frequency space.
 
 \section{Equations}
@@ -183,19 +196,22 @@ wavelength units, the spectral density of flux $f_{\nu}(\nu)$ per unit
 frequency is replaced with the spectral density of flux
 $f_{\lambda}(\lambda)$ per unit wavelength using
 \begin{equation}
-\nu\,f_{\nu}(\nu) = \lambda\,f_{\lambda}(\lambda) \;\;\;.
+\nu\,f_{\nu}(\nu) = \lambda\,f_{\lambda}(\lambda) \;\;\;,
 \end{equation}
-The \kcorrection\ becomes
+\begin{equation}
+\lambda\,\nu = c \;\;\;,
+\end{equation}
+where $c$ is the speed of light.  The \kcorrection\ becomes
 \begin{equation}
 K_{QR}(z) = -2.5\,\log_{10}\left[\frac{1}{(1+z)}\,
   \frac{\displaystyle
-    \int\mathrm{d}\lambda_o\,\lambda_o\,f_{\lambda}(\lambda_o)\,R(\lambda_o)\,
-      \int\mathrm{d}\lambda_e\,\lambda_e\,
-      g_{\lambda}(\lambda_e)\,     Q(\lambda_e)}
+  \int\mathrm{d}\lambdaobs\,\lambdaobs\,f_{\lambda}(\lambdaobs)\,R(\lambdaobs)\,
+    \int\mathrm{d}\lambdaemit\,\lambdaemit\,
+    g_{\lambda}(\lambdaemit)\,     Q(\lambdaemit)}
        {\displaystyle
-    \int\mathrm{d}\lambda_o\,\lambda_o\,g_{\lambda}(\lambda_o)\,R(\lambda_o)\,
-      \int\mathrm{d}\lambda_e\,\lambda_e\,
-      f_{\lambda}(\lambda_e[1+z])\,Q(\lambda_e)}
+  \int\mathrm{d}\lambdaobs\,\lambdaobs\,g_{\lambda}(\lambdaobs)\,R(\lambdaobs)\,
+    \int\mathrm{d}\lambdaemit\,\lambdaemit\,
+    f_{\lambda}(\lambdaemit[1+z])\,Q(\lambdaemit)}
 \right] \;\;\;,
 \end{equation}
 where, again, $R(\lambda)$ is defined to be the mean contribution to
