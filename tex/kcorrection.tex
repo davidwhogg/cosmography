@@ -1,13 +1,24 @@
-% This is a LaTeX file
-% by David W. Hogg
+% to-do
+% -----
+% - Make separate g_Q and g_R?  Hogg thinks probably yes but hates the
+%   requisite diversification of symbols.
+% - Give some example cases and figures?  Hogg torn, but thinks probably
+%   yes we ought to give two simple example calculations.
+% - Match equations in Oke and Sandage exactly?  Hogg thinks no, but we
+%   ought to state explicitly how to convert from our terminology to
+%   theirs and back again.
 
 \documentclass[preprint]{aastex}
+
+% notation definitions
 \newcommand{\kcorrection}{$K$~correction}
 \newcommand{\kcorrections}{{\kcorrection}s}
+\newcommand{\nuobs}{\nu_o}
+\newcommand{\nuemit}{\nu_e}
 
 \begin{document}
 
-\title{\kcorrections}
+\title{\scalebox{1.5}{The \kcorrection}}
 \author{
   David W. Hogg\altaffilmark{1,2},
   Michael Blanton\altaffilmark{1},
@@ -33,9 +44,11 @@
 }
 
 \begin{abstract}
-The \kcorrection, used in relating the rest-frame absolute magnitude
-in one broad photometric bandpass to the observed-frame apparent
-magnitude in another broad bandpass, is described.
+The \kcorrection\ is used to relate the rest-frame absolute magnitude
+of a source in one broad photometric bandpass to the observed-frame
+apparent magnitude of the same source in another broad bandpass.  This
+short paper provides definitions, equations and pedagogical discussion
+related to the \kcorrection.
 \end{abstract}
 
 \section{Introduction}
@@ -47,9 +60,15 @@ challenge that sources observed at different redshifts are sampled, by
 any particular instrument, at different rest-frame frequencies.  The
 transformations between observed and rest-frame broad-band photometric
 measurements are known as ``\kcorrections'' \citep*{humason56a,
-oke68a}.  Technically, the \kcorrections\ described here include a
-slight generalization from the original conception: here the observed
-and rest-frame bandpasses are permitted to have arbitrarily different
+oke68a}.
+
+Here we define the \kcorrection\ and give equations for its
+calculation, with the goals of explanation, clarification, and
+standardization of terminology.
+
+Technically, the \kcorrections\ described here include a slight
+generalization from the original conception: here the observed and
+rest-frame bandpasses are permitted to have arbitrarily different
 shapes and positions in frequency space.
 
 \section{Equations}
@@ -64,7 +83,7 @@ m_R = M_Q + DM + K_{QR}(z) \;\;\;,
 \end{equation}
 where $DM$ is the distance modulus, defined by
 \begin{equation}
-DM = 5\,\log_{10}\left[\frac{D_L^2}{(10~\mathrm{pc})^2}\right] \;\;\;,
+DM = 5\,\log_{10}\left[\frac{D_L}{10~\mathrm{pc}}\right] \;\;\;,
 \end{equation}
 where $D_L$ is the luminosity distance \citep[eg,][]{hogg99cosm}.
 
@@ -74,16 +93,16 @@ frequency) by
 \begin{equation}
 m_R = -2.5\,\log_{10}\left[
   \frac{\displaystyle
-          \int\frac{\mathrm{d}\nu_o}{\nu_o}\,f_{\nu}(\nu_o)\,R(\nu_o)}
+          \int\frac{\mathrm{d}\nuobs}{\nuobs}\,f_{\nu}(\nuobs)\,R(\nuobs)}
        {\displaystyle
-          \int\frac{\mathrm{d}\nu_o}{\nu_o}\,g_{\nu}(\nu_o)\,R(\nu_o)}
+          \int\frac{\mathrm{d}\nuobs}{\nuobs}\,g_{\nu}(\nuobs)\,R(\nuobs)}
 \right] \;\;\;,
 \end{equation}
-where the integrals are over the observed frequencies $\nu_o$;
+where the integrals are over the observed frequencies $\nuobs$;
 $g_{\nu}(\nu)$ is the spectral density of flux for the ``standard
 source'', which, for Vega-relative magnitudes, is Vega (or a weighted
 sum of a certain set of A0 stars), and, for AB magnitudes, is a
-hypothetical constant source with $g_{\nu}(\nu_o)=3631~\mathrm{Jy}$
+hypothetical constant source with $g_{\nu}(\nu)=3631~\mathrm{Jy}$
 (where $1~\mathrm{Jy}= 10^{-26}~\mathrm{W\,m^{-2}\,Hz^{-1}}=
 10^{-23}~\mathrm{erg\,cm^{-2}\,s^{-1}\,Hz^{-1}}$) at all frequencies
 $\nu$; and $R(\nu)$ describes the bandpass, as follows:
@@ -91,12 +110,13 @@ $\nu$; and $R(\nu)$ describes the bandpass, as follows:
 The value of $R(\nu)$ at each freqency $\nu$ is the mean contribution
 of a photon of frequency $\nu$ to the output signal from the detector.
 If the detector is a photon counter, like a CCD, then $R(\nu)$ is just
-the probability that a photon of frequency $\nu_o$ gets counted.  If
+the probability that a photon of frequency $\nuobs$ gets counted.  If
 the detector is a bolometer or calorimeter, then $R(\nu)$ is the
 energy deposition $h\,\nu$ per photon times the fraction of photons of
 energy $\nu$ that get absorbed into the detector.  If $R(\nu)$ has
 been properly computed, there is no need to write different integrals
-for photon counters and bolometers.
+for photon counters and bolometers.  Note that there is an implicit
+assumption here that detector nonlinearities have been corrected.
 
 The absolute magnitude $M_Q$ can be defined to be the apparent
 magnitude that the source \emph{would} have if it were
@@ -106,14 +126,14 @@ is related to the spectral density of the luminosity $L_{\nu}(\nu)$
 \begin{equation}
 M_Q = -2.5\,\log_{10}\left[
   \frac{\displaystyle
-          \int\frac{\mathrm{d}\nu_e}{\nu_e}\,
-              \frac{L_{\nu}(\nu_e)}{(10~\mathrm{pc})^2}\,Q(\nu_e)}
+          \int\frac{\mathrm{d}\nuemit}{\nuemit}\,
+              \frac{L_{\nu}(\nuemit)}{4\pi\,(10~\mathrm{pc})^2}\,Q(\nuemit)}
        {\displaystyle
-          \int\frac{\mathrm{d}\nu_e}{\nu_e}\,g_{\nu}(\nu_e)\,Q(\nu_e)}
+          \int\frac{\mathrm{d}\nuemit}{\nuemit}\,g_{\nu}(\nuemit)\,Q(\nuemit)}
 \right] \;\;\;,
 \end{equation}
 where the integrals are over emitted (ie, rest-frame) frequencies
-$\nu_e$, $D_L$ is the luminosity distance, and $Q(\nu)$ is the
+$\nuemit$, $D_L$ is the luminosity distance, and $Q(\nu)$ is the
 equivalent of $R(\nu)$ but for the bandpass $Q$.  As mentioned above,
 this does not require $Q=R$, so this is, technically, a generalization
 of the \kcorrection.
@@ -121,9 +141,14 @@ of the \kcorrection.
 If the source is at redshift $z$, then its luminosity is related to
 its flux by
 \begin{equation}
-L_{\nu}(\nu_e) = \frac{4\pi\,D_L^2}{1+z}\,f_{\nu}(\nu_o) \;\;\;,
+\label{eq:luminosity}
+L_{\nu}(\nuemit) = \frac{4\pi\,D_L^2}{1+z}\,f_{\nu}(\nuobs) \;\;\;,
 \end{equation}
-where the factor of $(1+z)$ accounts for the fact that the flux and
+\begin{equation}
+\nuemit = \nuobs\,[1+z] \;\;\;.
+\end{equation}
+The factor of $(1+z)$ in the luminosity expression
+(\ref{eq:luminosity}) accounts for the fact that the flux and
 luminosity are not bolometric but densities per unit freqency.  The
 factor would appear in the numerator if the expression related flux
 and luminosity densities per unit wavelength.
@@ -134,23 +159,22 @@ is
 \label{eq:kcorrection}
 K_{QR}(z) = -2.5\,\log_{10}\left[(1+z)\,
   \frac{\displaystyle
-          \int\frac{\mathrm{d}\nu_o}{\nu_o}\,f_{\nu}(\nu_o)\,R(\nu_o)\,
-          \int\frac{\mathrm{d}\nu_e}{\nu_e}\,g_{\nu}(\nu_e)\,Q(\nu_e)}
+          \int\frac{\mathrm{d}\nuobs}{\nuobs}\,f_{\nu}(\nuobs)\,R(\nuobs)\,
+          \int\frac{\mathrm{d}\nuemit}{\nuemit}\,g_{\nu}(\nuemit)\,Q(\nuemit)}
        {\displaystyle
-          \int\frac{\mathrm{d}\nu_o}{\nu_o}\,g_{\nu}(\nu_o)\,R(\nu_o)\,
-          \int\frac{\mathrm{d}\nu_e}{\nu_e}\,
-            f_{\nu}\left(\frac{\nu_e}{1+z}\right)\,Q(\nu_e)}
+          \int\frac{\mathrm{d}\nuobs}{\nuobs}\,g_{\nu}(\nuobs)\,R(\nuobs)\,
+          \int\frac{\mathrm{d}\nuemit}{\nuemit}\,
+            f_{\nu}\left(\frac{\nuemit}{1+z}\right)\,Q(\nuemit)}
 \right] \;\;\;,
 \end{equation}
-[SHOULD WE COMMENT ON THE $(1+z)$ FACTOR??]
 
 Equation (\ref{eq:kcorrection}) can be taken to be an operational
 definition, therefore, of the \kcorrection, from observations through
 bandpass $R$ of a source whose absolute magnitude $M_Q$ through
 bandpass $Q$ is desired.  In principle, if the $R$ and $Q$ have
 different zeropoint definitions (eg, if $R$ is Vega-relative and $Q$
-is AB), the $g_{\nu}(\nu_e)$ in the numerator can be a different
-function from the $g_{\nu}(\nu_o)$ in the denominator; in practice
+is AB), the $g_{\nu}(\nuemit)$ in the numerator can be a different
+function from the $g_{\nu}(\nuobs)$ in the denominator; in practice
 this situation is rare.
 
 In the above, all calculations were performed in frequency units.  In
@@ -173,11 +197,11 @@ K_{QR}(z) = -2.5\,\log_{10}\left[\frac{1}{(1+z)}\,
       f_{\lambda}(\lambda_e[1+z])\,Q(\lambda_e)}
 \right] \;\;\;,
 \end{equation}
-[CHECK THIS??] where, again, $R(\lambda)$ is defined to be the mean
-contribution to the detector signal in the $R$ bandpass for a photon
-of wavelength $\lambda$ and $Q(\lambda)$ is defined similarly.  Note
-that the hypothetical standard source for the AB magnitude system,
-with $g_{\nu}(\nu)$ constant, has
+where, again, $R(\lambda)$ is defined to be the mean contribution to
+the detector signal in the $R$ bandpass for a photon of wavelength
+$\lambda$ and $Q(\lambda)$ is defined similarly.  Note that the
+hypothetical standard source for the AB magnitude system, with
+$g_{\nu}(\nu)$ constant, has
 $g_{\lambda}(\lambda)\propto\lambda^{-2}$.
 
 \section{Discussion}
@@ -188,11 +212,13 @@ density $g_{\nu}(\nu)$, and the bandpasses $R(\nu)$ and $Q(\nu)$.  In
 most real astronomical situations, none of these is known to better
 than a few percent, often much worse.  Sometimes, use of the AB system
 seems reassuring (relative to, say, a Vega-relative system) because
-$g_{\nu}(\nu)$ is known (ie, defined), but this is a false sense,
-since in fact there is an uncertainty about the absolute calibrations
-of the actual standard stars used, which is equivalent to an
-uncertainty in $g_{\nu}(\nu)$.  Again, for most experiments, this
-uncertainty is larger than a few percent.
+$g_{\nu}(\nu)$ is known (ie, defined), but this is a false sense: In
+fact the standard stars have been put on the AB system to the best
+available accuracy; this involves absolute spectrophotometry of at
+least some standard stars; this absolute flux information is rarely
+known to better than a few percent.  The expected deviations of the
+magnitudes given to the standard stars from a true AB system are
+equivalent to uncertainties in $g_{\nu}(\nu)$.
 
 The classical \kcorrection\ has $R(\nu)=Q(\nu)$.  This eliminates the
 integrals over the standard-source flux density $g_{\nu}(\nu)$.
@@ -202,7 +228,7 @@ try to get $R(\nu)\sim Q([1+z]\nu)$ so as to weaken dependence on
 $f_{\nu}(\nu)$, which can be complicated or unknown.  This requires
 good knowledge of the absolute flux densities of the standard sources
 if the redshift is significant.  This kind of absolute calibration is
-almost always uncertain at more than the few-percent level.
+often uncertain at the few-percent level or worse.
 
 \bibliographystyle{hacked_apj}
 \bibliography{apj-jour,ccpp}
