@@ -4,9 +4,6 @@
 %   requisite diversification of symbols.
 % - Give some example cases and figures?  Hogg torn, but thinks probably
 %   yes we ought to give two simple example calculations.
-% - Match equations in Oke and Sandage exactly?  Hogg thinks no, but we
-%   ought to state explicitly how to convert from our terminology to
-%   theirs and back again.
 
 \documentclass[preprint]{aastex}
 
@@ -26,7 +23,7 @@
   Michael Blanton\altaffilmark{1},
   Daniel J. Eisenstein\altaffilmark{3},
   and Ivan K. Baldry\altaffilmark{4}\\
-  \textsl{fourth draft---2002 August 15}
+  \textsl{fifth draft---2002 August 15}
 }
 \altaffiltext{1}{
   Center for Cosmology and Particle Physics,
@@ -203,6 +200,7 @@ $f_{\lambda}(\lambda)$ per unit wavelength using
 \end{equation}
 where $c$ is the speed of light.  The \kcorrection\ becomes
 \begin{equation}
+\label{eq:wavelength}
 K_{QR}(z) = -2.5\,\log_{10}\left[\frac{1}{(1+z)}\,
   \frac{\displaystyle
   \int\mathrm{d}\lambdaobs\,\lambdaobs\,f_{\lambda}(\lambdaobs)\,R(\lambdaobs)\,
@@ -222,6 +220,23 @@ $g_{\nu}(\nu)$ constant, has
 $g_{\lambda}(\lambda)\propto\lambda^{-2}$.
 
 \section{Discussion}
+
+Equation (\ref{eq:wavelength}) becomes identical to \citet{oke68a}
+equation number 2 if it is assumed that $R=Q$ and the variables
+$\lambda$, $\lambda_0$, $F(\lambda)$ and $S_i(\lambda)$ in
+\citet{oke68a} are set as follows:
+\begin{eqnarray}\displaystyle
+\lambda & = & \lambdaemit \;\;\;, \nonumber \\
+\lambda_0 & = & \lambdaobs \;\;\;, \nonumber \\
+F(\lambda) & = & f_{\lambda}(\lambda) \;\;\;, \nonumber \\
+S_i(\lambda) & = & \lambda\,R(\lambda) \;\;\;.
+\end{eqnarray}
+Note that if we take equation (\ref{eq:definition}) above to be the
+definition of the \kcorrection, then the statement by \citet{oke68a}
+that the \kcorrection\ ``would disappear if intensity measurements of
+redshifted galaxies were made with a detector whose spectral
+acceptance band was shifted by $1+z$ at all wavelengths'' is simply
+incorrect.
 
 To compute an accurate \kcorrection, one needs an accurate description
 of the source flux density $f_{\nu}(\nu)$, the standard-source flux
