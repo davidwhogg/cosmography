@@ -1,11 +1,3 @@
-% to-do
-% -----
-% - Re-write equations for K ALSO using L(\nu_e), and explain the
-%   difference; and comparisons with the literature.
-% - Give some example cases and figures?  Hogg torn, but thinks probably
-%   yes we ought to give two simple example calculations, and ALL the
-%   input data so readers can check their own work.
-
 \documentclass[preprint]{aastex}
 
 % notation definitions
@@ -25,7 +17,7 @@
   Michael Blanton\altaffilmark{1},
   and
   Daniel J. Eisenstein\altaffilmark{4}
-  \\ \textsl{sixth draft---2002 October 7}
+  \\ \textsl{seventh draft---2002 October 14}
 }
 \altaffiltext{1}{
   Center for Cosmology and Particle Physics,
@@ -46,12 +38,13 @@
 
 \begin{abstract}
 The \kcorrection\ ``corrects'' for the fact that sources observed at
-different redshifts are, in general, observed at different rest-frame
-wavelengths.  It is part of the relation between the emitted- or
-rest-frame absolute magnitude of a source in one broad photometric
-bandpass to the observed-frame apparent magnitude of the same source
-in another broad bandpass.  This short pedagogical paper provides
-definitions of and equations for the \kcorrection.
+different redshifts are, in general, compared with standards or each
+other at different rest-frame wavelengths.  It is part of the relation
+between the emitted- or rest-frame absolute magnitude of a source in
+one broad photometric bandpass to the observed-frame apparent
+magnitude of the same source in another broad bandpass.  This short
+pedagogical paper provides definitions of and equations for the
+\kcorrection.
 \end{abstract}
 
 \section{Introduction}
@@ -74,17 +67,17 @@ by the source at frequency $\nuemit$ with
 \begin{equation}
 \nuemit = \nuobs\,[1+z] \;\;\;.
 \end{equation}
-The apparent flux of the source is imagined to be measured through an
-observed-frame bandpass $R$ and the intrinsic luminosity is imagined
-to be measured through a emitted-frame bandpass $Q$.  The
-\kcorrection\ is used in relating these two quantites.
+The apparent flux of the source is imagined to be measured through a
+finite observed-frame bandpass $R$ and the intrinsic luminosity is
+imagined to be measured through a finite emitted-frame bandpass $Q$.
+The \kcorrection\ is used in relating these two quantites.
 
 Technically, the \kcorrection\ described here includes a slight
 generalization from the original conception: The observed and
 emitted-frame bandpasses are permitted to have arbitrarily different
-shapes and positions in frequency space \citep[cf.,][]{kim96a}.  In
-addition, the \kcorrections\ here permit the different bandpasses to
-be calibrated to different standard sources.
+shapes and positions in frequency space \citep[as they are in,
+eg,][]{kim96a}.  In addition, the equations below permit the different
+bandpasses to be calibrated to different standard sources.
 
 \section{Equations}
 
@@ -152,10 +145,10 @@ M_Q = -2.5\,\log_{10}\left[
 where the integrals are over emitted (ie, rest-frame) frequencies
 $\nuemit$, $D_L$ is the luminosity distance, and $Q(\nu)$ is the
 equivalent of $R(\nu)$ but for the bandpass $Q$.  As mentioned above,
-this does not require $Q=R$, so this is, technically, a generalization
-of the \kcorrection.  In addition, since the $Q$ and $R$ bands can be
-zero-pointed to different standard sources (eg, if $R$ is
-Vega-relative and $Q$ is AB), it is not necessary that
+this does not require $Q=R$, so this will lead to, technically, a
+generalization of the \kcorrection.  In addition, since the $Q$ and
+$R$ bands can be zero-pointed to different standard sources (eg, if
+$R$ is Vega-relative and $Q$ is AB), it is not necessary that
 $g^Q_{\nu}=g^R_{\nu}$.
 
 If the source is at redshift $z$, then its luminosity is related to
@@ -176,14 +169,14 @@ and luminosity densities per unit wavelength.
 Equation (\ref{eq:definition}) holds if the \kcorrection\ $K_{QR}$ is
 \begin{equation}
 \label{eq:kcorrection}
-K_{QR} = -2.5\,\log_{10}\left[(1+z)\,
+K_{QR} = -2.5\,\log_{10}\left[[1+z]\,
   \frac{\displaystyle
           \int\frac{\mathrm{d}\nuobs}{\nuobs}\,f_{\nu}(\nuobs)\,R(\nuobs)\,
           \int\frac{\mathrm{d}\nuemit}{\nuemit}\,g^Q_{\nu}(\nuemit)\,Q(\nuemit)}
        {\displaystyle
           \int\frac{\mathrm{d}\nuobs}{\nuobs}\,g^R_{\nu}(\nuobs)\,R(\nuobs)\,
           \int\frac{\mathrm{d}\nuemit}{\nuemit}\,
-            f_{\nu}\left(\frac{\nuemit}{1+z}\right)\,Q(\nuemit)}
+            f_{\nu}\!\left(\frac{\nuemit}{1+z}\right)\,Q(\nuemit)}
 \right] \;\;\;.
 \end{equation}
 
@@ -200,10 +193,11 @@ terms of the apparent flux $f_{\nu}(\nu)$ in the observed frame.  This
 is the direct observable.  Most past discussions of the \kcorrection\
 \citep[eg,][]{oke68a, kim96a} write equations for the \kcorrection\ in
 terms of either the flux or luminosity in the emitted frame.
-Transformation to emitted frame gives
+Transformation from observed-frame flux $f_{\nu}(\nuobs)$ to
+emitted-frame luminosity $L_{\nu}(\nuemit)$ gives
 \begin{equation}
 \label{eq:kcorrectionL}
-K_{QR} = -2.5\,\log_{10}\left[(1+z)\,
+K_{QR} = -2.5\,\log_{10}\left[[1+z]\,
   \frac{\displaystyle
           \int\frac{\mathrm{d}\nuobs}{\nuobs}\,L_{\nu}(\nuobs[1+z])\,R(\nuobs)\,
           \int\frac{\mathrm{d}\nuemit}{\nuemit}\,g^Q_{\nu}(\nuemit)\,Q(\nuemit)}
@@ -227,7 +221,7 @@ $f_{\lambda}(\lambda)$ per unit wavelength using
 where $c$ is the speed of light.  The \kcorrection\ becomes
 \begin{equation}
 \label{eq:wavelength}
-K_{QR} = -2.5\,\log_{10}\left[\frac{1}{(1+z)}\,
+K_{QR} = -2.5\,\log_{10}\left[\frac{1}{[1+z]}\,
   \frac{\displaystyle
   \int\mathrm{d}\lambdaobs\,\lambdaobs\,f_{\lambda}(\lambdaobs)\,R(\lambdaobs)\,
     \int\mathrm{d}\lambdaemit\,\lambdaemit\,
@@ -247,13 +241,14 @@ $g^\mathrm{AB}_{\lambda}(\lambda)$ not constant but rather
 $g^\mathrm{AB}_{\lambda}(\lambda)=
 c\,\lambda^{-2}\,g^\mathrm{AB}_{\nu}(\nu)$.
 
-Again, transformation from using observed-frame flux to emitted-frame
-luminosity gives
+Again, transformation from observed-frame flux
+$f_{\lambda}(\lambdaobs)$ to emitted-frame luminosity
+$L_{\lambda}(\lambdaemit)$ gives
 \begin{equation}
 \label{eq:wavelengthL}
-K_{QR} = -2.5\,\log_{10}\left[\frac{1}{(1+z)}\,
+K_{QR} = -2.5\,\log_{10}\left[\frac{1}{[1+z]}\,
   \frac{\displaystyle
-  \int\mathrm{d}\lambdaobs\,\lambdaobs\,L_{\lambda}\left(\frac{\lambdaobs}{1+z}\right)\,R(\lambdaobs)\,
+  \int\mathrm{d}\lambdaobs\,\lambdaobs\,L_{\lambda}\!\left(\frac{\lambdaobs}{1+z}\right)\,R(\lambdaobs)\,
     \int\mathrm{d}\lambdaemit\,\lambdaemit\,
     g^Q_{\lambda}(\lambdaemit)\,Q(\lambdaemit)}
        {\displaystyle
@@ -262,6 +257,22 @@ K_{QR} = -2.5\,\log_{10}\left[\frac{1}{(1+z)}\,
     L_{\lambda}(\lambdaemit)\,Q(\lambdaemit)}
 \right] \;\;\;.
 \end{equation}
+
+Equation (\ref{eq:wavelengthL}) becomes identical to the equation for
+$K$ in \citet{oke68a} if it is assumed that $Q=R$, that
+$g^Q_{\nu}=g^R_{\nu}$, that the variables $\lambda_0$,
+$F(\lambda)$, and $S_i(\lambda)$ in \citet{oke68a} are set to
+\begin{eqnarray}\displaystyle
+\lambda_0 & = & \lambdaemit \;\;\;, \nonumber \\
+F(\lambda) & = & L_{\lambda}(\lambda) \;\;\;, \nonumber \\
+S_i(\lambda) & = & \lambda\,R(\lambda) \;\;\;,
+\end{eqnarray}
+and that the integrand $\lambda$ is used differently in each of the
+two integrals.  Similar transformations make the equations here
+consistent with those of \citet{kim96a}, although they distinguish
+between the classical \kcorrection\ and one computed for photon
+counting devices (an unnecessary distinction); their most similar
+equation is that given for $K^\mathrm{counts}_{xy}$.
 
 \section{Discussion}
 
@@ -290,22 +301,6 @@ which can be complicated or unknown.  This requires good knowledge of
 the absolute flux densities of the standard sources if the redshift is
 significant.  This kind of absolute calibration is often uncertain at
 the few-percent level or worse.
-
-Equation (\ref{eq:wavelengthL}) becomes identical to the equation for
-$K$ in \citet{oke68a} if it is assumed that $Q=R$, that
-$g^Q_{\nu}=g^R_{\nu}$, that the variables $\lambda_0$,
-$F(\lambda)$, and $S_i(\lambda)$ in \citet{oke68a} are set to
-\begin{eqnarray}\displaystyle
-\lambda_0 & = & \lambdaemit \;\;\;, \nonumber \\
-F(\lambda) & = & L_{\lambda}(\lambda) \;\;\;, \nonumber \\
-S_i(\lambda) & = & \lambda\,R(\lambda) \;\;\;,
-\end{eqnarray}
-and that the integrand $\lambda$ is used differently in each of the
-two integrals.  Similar transformations make the equations here
-consistent with those of \citet{kim96a}, although they distinguish
-between the classical \kcorrection\ and one computed for photon
-counting devices (an unnecessary distinction); their most similar
-equation is that given for $K^\mathrm{counts}_{xy}$.
 
 Note that if equation (\ref{eq:definition}) is taken to be the
 definition of the \kcorrection, then the statement by \citet{oke68a}
