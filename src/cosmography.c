@@ -8,9 +8,14 @@
    done with stepsize roughly MINSTEP and that the integrator is not
    pretty.
 
+   For more information, please see
+      http://arxiv.org/abs/astro-ph/9905116
+
 -------------------------------------------------------------------------------
+
    David W. Hogg
-   hogg@ias.edu
+   hogg@physics.nyu.edu
+
 ---------------------------------------------------------------------------- */
 
 #define PI       (3.141592653589793238462643)
