@@ -20,10 +20,11 @@
 \title{\scalebox{1.5}{The \kcorrection}}
 \author{
   David W. Hogg\altaffilmark{1,2},
+  Ivan K. Baldry\altaffilmark{3},
   Michael Blanton\altaffilmark{1},
-  Daniel J. Eisenstein\altaffilmark{3},
-  and Ivan K. Baldry\altaffilmark{4}\\
-  \textsl{fifth draft---2002 August 15}
+  and
+  Daniel J. Eisenstein\altaffilmark{4}
+  \\ \textsl{fifth draft---2002 August 15}
 }
 \altaffiltext{1}{
   Center for Cosmology and Particle Physics,
@@ -34,20 +35,20 @@
   \texttt{david.hogg@nyu.edu}
 }
 \altaffiltext{3}{
-  Steward Observatory,
-  University of Arizona
-}
-\altaffiltext{4}{
   Department of Physics and Astronomy,
   The Johns Hopkins University
 }
+\altaffiltext{4}{
+  Steward Observatory,
+  University of Arizona
+}
 
 \begin{abstract}
-The \kcorrection\ is used to relate the emitted- or rest-frame
-absolute magnitude of a source in one broad photometric bandpass to
-the observed-frame apparent magnitude of the same source in another
-broad bandpass.  This short paper provides definitions, equations and
-pedagogical discussion related to the \kcorrection.
+The \kcorrection\ is part of the relation between the emitted- or
+rest-frame absolute magnitude of a source in one broad photometric
+bandpass to the observed-frame apparent magnitude of the same source
+in another broad bandpass.  This short paper provides definitions,
+equations and pedagogical discussion related to the \kcorrection.
 \end{abstract}
 
 \section{Introduction}
@@ -58,8 +59,8 @@ that recession velocities can be translated into radial distances
 challenge that sources observed at different redshifts are sampled, by
 any particular instrument, at different rest-frame frequencies.  The
 transformations between observed and rest-frame broad-band photometric
-measurements are known as ``\kcorrections'' \citep*{humason56a,
-oke68a}.
+measurements involve terms known as ``\kcorrections''
+\citep*{humason56a, oke68a}.
 
 Here we define the \kcorrection\ and give equations for its
 calculation, with the goals of explanation, clarification, and
@@ -74,7 +75,7 @@ by the source at frequency $\nuemit$ with
 The apparent flux of the source is imagined to be measured through an
 observed-frame bandpass $R$ and the intrinsic luminosity is imagined
 to be measured through a emitted-frame bandpass $Q$.  The
-\kcorrection\ is used to relate these two quantites.
+\kcorrection\ is used in relating these two quantites.
 
 Technically, the \kcorrection\ described here includes a slight
 generalization from the original conception: The observed and
@@ -86,10 +87,10 @@ shapes and positions in frequency space.
 Consider a source observed to have apparent magnitude $m_R$ when
 observed through photometric bandpass $R$, for which one wishes to
 know its absolute magnitude $M_Q$ in emitted-frame bandpass $Q$.  The
-\kcorrection\ $K_{QR}(z)$ for this source is \emph{defined} by
+\kcorrection\ $K_{QR}$ for this source is \emph{defined} by
 \begin{equation}
 \label{eq:definition}
-m_R = M_Q + DM + K_{QR}(z) \;\;\;,
+m_R = M_Q + DM + K_{QR} \;\;\;,
 \end{equation}
 where $DM$ is the distance modulus, defined by
 \begin{equation}
@@ -99,8 +100,8 @@ where $D_L$ is the luminosity distance \citep[eg,][]{hogg99cosm} and
 $1~\mathrm{pc}= 3.086\times 10^{16}~\mathrm{m}$.
 
 The apparent magnitude $m_R$ of the source is related to its spectral
-density of flux $f_{\nu}(\nu)$ (power per unit area per unit
-frequency) by
+density of flux $f_{\nu}(\nu)$ (energy per unit time per unit area per
+unit frequency) by
 \begin{equation}
 m_R = -2.5\,\log_{10}\left[
   \frac{\displaystyle
@@ -111,10 +112,11 @@ m_R = -2.5\,\log_{10}\left[
 \end{equation}
 where the integrals are over the observed frequencies $\nuobs$;
 $g_{\nu}(\nu)$ is the spectral density of flux for the ``standard
-source'', which, for Vega-relative magnitudes, is Vega (or a weighted
-sum of a certain set of A0 stars), and, for AB magnitudes, is a
-hypothetical constant source with $g_{\nu}(\nu)=3631~\mathrm{Jy}$
-(where $1~\mathrm{Jy}= 10^{-26}~\mathrm{W\,m^{-2}\,Hz^{-1}}=
+source'', which, for Vega-relative magnitudes, is Vega (or perhaps a
+weighted sum of a certain set of A0 stars), and, for AB magnitudes
+\citep{oke83a}, is a hypothetical constant source with
+$g_{\nu}(\nu)=3631~\mathrm{Jy}$ (where $1~\mathrm{Jy}=
+10^{-26}~\mathrm{W\,m^{-2}\,Hz^{-1}}=
 10^{-23}~\mathrm{erg\,cm^{-2}\,s^{-1}\,Hz^{-1}}$) at all frequencies
 $\nu$; and $R(\nu)$ describes the bandpass, as follows:
 
@@ -133,7 +135,7 @@ The absolute magnitude $M_Q$ can be defined to be the apparent
 magnitude that the source \emph{would} have if it were
 $10~\mathrm{pc}$ away, at rest (ie, not redshifted), and compact.  It
 is related to the spectral density of the luminosity $L_{\nu}(\nu)$
-(power per unit frequency) of the source by
+(energy per unit time per unit frequency) of the source by
 \begin{equation}
 M_Q = -2.5\,\log_{10}\left[
   \frac{\displaystyle
@@ -164,11 +166,10 @@ luminosity are not bolometric but densities per unit freqency.  The
 factor would appear in the numerator if the expression related flux
 and luminosity densities per unit wavelength.
 
-Equation (\ref{eq:definition}) holds if the \kcorrection\ $K_{QR}(z)$
-is
+Equation (\ref{eq:definition}) holds if the \kcorrection\ $K_{QR}$ is
 \begin{equation}
 \label{eq:kcorrection}
-K_{QR}(z) = -2.5\,\log_{10}\left[(1+z)\,
+K_{QR} = -2.5\,\log_{10}\left[(1+z)\,
   \frac{\displaystyle
           \int\frac{\mathrm{d}\nuobs}{\nuobs}\,f_{\nu}(\nuobs)\,R(\nuobs)\,
           \int\frac{\mathrm{d}\nuemit}{\nuemit}\,g_{\nu}(\nuemit)\,Q(\nuemit)}
@@ -201,7 +202,7 @@ $f_{\lambda}(\lambda)$ per unit wavelength using
 where $c$ is the speed of light.  The \kcorrection\ becomes
 \begin{equation}
 \label{eq:wavelength}
-K_{QR}(z) = -2.5\,\log_{10}\left[\frac{1}{(1+z)}\,
+K_{QR} = -2.5\,\log_{10}\left[\frac{1}{(1+z)}\,
   \frac{\displaystyle
   \int\mathrm{d}\lambdaobs\,\lambdaobs\,f_{\lambda}(\lambdaobs)\,R(\lambdaobs)\,
     \int\mathrm{d}\lambdaemit\,\lambdaemit\,
@@ -216,27 +217,10 @@ where, again, $R(\lambda)$ is defined to be the mean contribution to
 the detector signal in the $R$ bandpass for a photon of wavelength
 $\lambda$ and $Q(\lambda)$ is defined similarly.  Note that the
 hypothetical standard source for the AB magnitude system, with
-$g_{\nu}(\nu)$ constant, has
-$g_{\lambda}(\lambda)\propto\lambda^{-2}$.
+$g_{\nu}(\nu)$ constant, has $g_{\lambda}(\lambda)$ not constant but
+rather $g_{\lambda}(\lambda)= c\,\lambda^{-2}\,g_{\nu}(\nu)$.
 
 \section{Discussion}
-
-Equation (\ref{eq:wavelength}) becomes identical to \citet{oke68a}
-equation number 2 if it is assumed that $R=Q$ and the variables
-$\lambda$, $\lambda_0$, $F(\lambda)$ and $S_i(\lambda)$ in
-\citet{oke68a} are set as follows:
-\begin{eqnarray}\displaystyle
-\lambda & = & \lambdaemit \;\;\;, \nonumber \\
-\lambda_0 & = & \lambdaobs \;\;\;, \nonumber \\
-F(\lambda) & = & f_{\lambda}(\lambda) \;\;\;, \nonumber \\
-S_i(\lambda) & = & \lambda\,R(\lambda) \;\;\;.
-\end{eqnarray}
-Note that if we take equation (\ref{eq:definition}) above to be the
-definition of the \kcorrection, then the statement by \citet{oke68a}
-that the \kcorrection\ ``would disappear if intensity measurements of
-redshifted galaxies were made with a detector whose spectral
-acceptance band was shifted by $1+z$ at all wavelengths'' is simply
-incorrect.
 
 To compute an accurate \kcorrection, one needs an accurate description
 of the source flux density $f_{\nu}(\nu)$, the standard-source flux
@@ -261,6 +245,24 @@ $f_{\nu}(\nu)$, which can be complicated or unknown.  This requires
 good knowledge of the absolute flux densities of the standard sources
 if the redshift is significant.  This kind of absolute calibration is
 often uncertain at the few-percent level or worse.
+
+Equation (\ref{eq:wavelength}) becomes identical to the equation for
+$K$ in \citet{oke68a} if it is assumed that $R=Q$ and the variables
+$\lambda$, $\lambda_0$, $F(\lambda)$, and $S_i(\lambda)$ in
+\citet{oke68a} are set as follows:
+\begin{eqnarray}\displaystyle
+\lambda & = & \lambdaemit \;\;\;, \nonumber \\
+\lambda_0 & = & \lambdaobs \;\;\;, \nonumber \\
+F(\lambda) & = & f_{\lambda}(\lambda) \;\;\;, \nonumber \\
+S_i(\lambda) & = & \lambda\,R(\lambda) \;\;\;.
+\end{eqnarray}
+Note that if equation (\ref{eq:definition}) is taken to be the
+definition of the \kcorrection, then the statement by \citet{oke68a}
+that the \kcorrection\ ``would disappear if intensity measurements of
+redshifted galaxies were made with a detector whose spectral
+acceptance band was shifted by $1+z$ at all wavelengths'' is
+incorrect; the correct statement is that the \kcorrection\ would not
+depend on the source's spectrum $f_{\nu}(\nu)$.
 
 \bibliographystyle{hacked_apj}
 \bibliography{apj-jour,ccpp}
