@@ -20,7 +20,7 @@
 ; PROCEDURES CALLED:
 ;   comdis()
 ; REVISION HISTORY:
-;   25-Jun-2000  Written by Hogg (IAS)
+;   2000-Jun-25  Written by Hogg (IAS)
 ;-
 function propmotdis, z,OmegaM,OmegaL
   TINY= double(1.0e-16)

@@ -20,7 +20,7 @@
 ; PROCEDURES CALLED:
 ;   dcomdisdz()
 ; REVISION HISTORY:
-;   25-Jun-2000  Written by Hogg (IAS)
+;   2000-Jun-25  Written by Hogg (IAS)
 ;-
 function dpropdisdz, z,OmegaM,OmegaL
   return, (dcomdisdz(z,OmegaM,OmegaL)/(1.0+z))

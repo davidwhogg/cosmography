@@ -21,12 +21,12 @@
 ; PROCEDURES CALLED:
 ;   dcomdisdz()
 ; REVISION HISTORY:
-;   25-Jun-2000  Written by Hogg (IAS)
+;   2000-Jun-25  Written by Hogg (IAS)
 ;-
 ;------------------------------------------------------------------------------
 function comdis, z,OmegaM,OmegaL
   TINY= double(1.0e-16)
-  stepsize= 0.01               ; minimum stepsize of 0.01
+  stepsize= 0.01D              ; minimum stepsize of 0.01
   nsteps= long(z/stepsize)+10  ; minimum of 10 steps
   dz= z/double(nsteps)
   dC= double(0.0*z)
@@ -36,7 +36,7 @@ function comdis, z,OmegaM,OmegaL
       for zz=0.5*dz,z,dz do dC= dC+dz*dcomdisdz(zz,OmegaM,OmegaL)
     endelse
   endif else begin
-    help, nz
+;    help, nz
     for i=0,nz-1 do dC[i]= comdis(z[i],OmegaM,OmegaL)
   endelse
   return, dC

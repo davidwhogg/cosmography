@@ -20,7 +20,7 @@
 ; PROCEDURES CALLED:
 ;   propmotdis()
 ; REVISION HISTORY:
-;   25-Jun-2000  Written by Hogg (IAS)
+;   2000-Jun-25  Written by Hogg (IAS)
 ;-
 function angdidis, z,OmegaM,OmegaL
   return, propmotdis(z,OmegaM,OmegaL)/(1.0+z)
