@@ -1,3 +1,4 @@
+# Makefile for cosmography repository
 #
 # WARNING: clean is very harsh
 #

@@ -1,0 +1,12 @@
+Hogg's cosmography repository
+
+   To make the whole document:
+
+   % cd sm
+   % sm
+   > macro read makeplots.sm
+   > all
+   > quit
+   % cd ../tex
+   % latex cosmography ; latex cosmography
+   % dvips cosmography -o
