@@ -7,11 +7,13 @@
 # revision history:
 # 2002-07-25  written - Hogg (NYU)
 
-all: kcorrection.ps
+all: kcorrection.ps cosmography.ps
 
-kcorrection.ps: kcorrection.tex
-	latex kcorrection; bibtex kcorrection; latex kcorrection; latex kcorrection; dvips kcorrection -o
+kcorrection.ps: kcorrection.tex kcorrection.bbl
+	latex kcorrection; latex kcorrection; latex kcorrection; dvips kcorrection -o
+
+cosmography.ps: cosmography.tex
+	latex cosmography; latex cosmography; latex cosmography; dvips cosmography -o
 
 clean:
-	$(RM) *.aux *.log *.bbl *.blg *.dvi *.eps \
-	kcorrection.ps cosmography.ps
+	$(RM) *.aux *.log *.bbl *.blg *.dvi *.eps
