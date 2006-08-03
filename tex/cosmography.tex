@@ -29,8 +29,8 @@
 \begin{center}
 {\LARGE\bf Distance measures in cosmology} \\[1.0\baselineskip]
 {\large\sc David W. Hogg} \\[0.5\baselineskip]
-{\normalsize\sl Department of Physics, New York University,
-   4 Washington Place, New York, NY 10003} \\
+{\normalsize\sl Center for Cosmology and Particle Physics \\
+                Department of Physics, New York University}
 {\normalsize\tt david.hogg@nyu.edu} \\[0.5\baselineskip]
 {2001 July}
 \end{center}
@@ -237,20 +237,36 @@ which is {\em not\/} the same as ``angular diameter distance''
 introduced below), we define the function
 \begin{equation}
 \label{eq:ez}
-E(z)\equiv\sqrt{\Omega_{\rm M}\,(1+z)^3+\Omega_k\,(1+z)^2+\Omega_{\Lambda}}
+E(z)\equiv\sqrt{\Omega_{\rm M}\,(1+z)^3
+               +\Omega_k\,(1+z)^2
+               +\Omega_{\Lambda}}
 \end{equation}
 which is proportional to the time derivative of the logarithm of the
 scale factor (ie, $\dot{a}(t)/a(t)$), with $z$ redshift and
 $\Omega_{\rm M}$, $\Omega_k$ and $\Omega_{\Lambda}$ the three density
 parameters defined above.  (For this reason, $H(z)=H_0\,E(z)$ is the
 Hubble constant as measured by a hypothetical astronomer working at
-redshift $z$.)  Since $dz=da$, $dz/E(z)$ is proportional to the
-time-of-flight of a photon traveling across the redshift interval
-$dz$, divided by the scale factor at that time.  Since the speed of
-light is constant, this is a proper distance divided by the scale
-factor, which is the definition of a comoving distance.  The total
-line-of-sight comoving distance is then given by integrating these
-contributions, or
+redshift $z$.)
+
+If you prefer to participate in the ``dark energy'' trend, you can
+replace the $\Omega_{\Lambda}$ term in $E(z)$ with an $\Omega_{\rm
+DE}$ term parameterized by the variable $w$ (erroneously referred-to
+in the literature as the ``equation of state'' parameter) to make
+\begin{equation}
+\label{eq:ezw}
+E(z)\equiv\sqrt{\Omega_{\rm M}\,(1+z)^3
+               +\Omega_k\,(1+z)^2
+               +\Omega_{\rm DE}\,(1+z)^{3\,(1+w))}
+\end{equation}
+At $w=-1$ the dark energy acts like a cosmological constant; at $w=0$
+it acts like normal matter.
+
+Since $dz=da$, $dz/E(z)$ is proportional to the time-of-flight of a
+photon traveling across the redshift interval $dz$, divided by the
+scale factor at that time.  Since the speed of light is constant, this
+is a proper distance divided by the scale factor, which is the
+definition of a comoving distance.  The total line-of-sight comoving
+distance is then given by integrating these contributions, or
 \begin{equation}
 D_{\rm C} = D_{\rm H}\,\int_0^z\frac{dz'}{E(z')}
 \end{equation}
@@ -277,9 +293,12 @@ line-of-sight comoving distance $D_{\rm C}$:
 \begin{equation}
 D_{\rm M} = \left\{
 \begin{array}{ll}
-D_{\rm H}\,\frac{1}{\sqrt{\Omega_k}}\,\sinh\left[\sqrt{\Omega_k}\,D_{\rm C}/D_{\rm H}\right] & {\rm for}~\Omega_k>0 \\
-D_{\rm C} & {\rm for}~\Omega_k=0 \\
-D_{\rm H}\,\frac{1}{\sqrt{|\Omega_k|}}\,\sin\left[\sqrt{|\Omega_k|}\,D_{\rm C}/D_{\rm H}\right] & {\rm for}~\Omega_k<0
+\displaystyle
+D_{\rm H}\,\frac{1}{\sqrt{\Omega_k}}\,\sinh\left[\sqrt{\Omega_k}\,\frac{D_{\rm C}}{D_{\rm H}}\right] & {\rm for}~\Omega_k>0 \\[3ex]
+\displaystyle
+D_{\rm C} & {\rm for}~\Omega_k=0 \\[3ex]
+\displaystyle
+D_{\rm H}\,\frac{1}{\sqrt{|\Omega_k|}}\,\sin\left[\sqrt{|\Omega_k|}\,\frac{D_{\rm C}}{D_{\rm H}}\right] & {\rm for}~\Omega_k<0
 \end{array}
 \right.
 \end{equation}
@@ -342,20 +361,29 @@ Figure~\ref{angdidis}.  At high redshift, the angular diameter
 distance is such that 1~arcsec is on the order of 5~kpc.
 
 There is also an angular diameter distance $D_{\rm A12}$ between two
-objects at redshifts $z_1$ and $z_2$, frequently used in gravitational
-lensing.  It is {\em not\/} found by subtracting the two individual
-angular diameter distances!  The correct formula, for $\Omega_k\geq
-0$, is
+objects at redshifts $z_1$ and $z_2$, where $z_1 < z_2$, frequently
+used in gravitational lensing.  It is {\em not\/} found by subtracting
+the two individual angular diameter distances!  It is
 \begin{equation}
-D_{\rm A12}= \frac{1}{1+z_2}\,\left[
- D_{\rm M2}\,\sqrt{1+\Omega_k\,\frac{D_{\rm M1}^2}{D_{\rm H}^2}}
- - D_{\rm M1}\,\sqrt{1+\Omega_k\,\frac{D_{\rm M2}^2}{D_{\rm H}^2}}\right]
+D_{\rm A12} = \left\{
+\begin{array}{ll}
+\displaystyle
+\frac{D_H}{(1+z_2)\,\sqrt{\Omega_k}}\,\sinh\left[\sqrt{\Omega_k}
+  \,\frac{D_{\rm C2}-D_{\rm C1}}{D_{\rm H}}\right]
+  & {\rm for}~\Omega_k>0 \\[3ex]
+\displaystyle
+\frac{D_{\rm C2}-D_{\rm C1}}{(1+z_2)} & {\rm for}~\Omega_k=0 \\[3ex]
+\displaystyle
+\frac{D_H}{(1+z_2)\,\sqrt{|\Omega_k|}}\,\sin\left[\sqrt{|\Omega_k|}
+  \,\frac{D_{\rm C2}-D_{\rm C1}}{D_{\rm H}}\right]
+  & {\rm for}~\Omega_k<0
+\end{array}
+\right.
 \end{equation}
-where $D_{\rm M1}$ and $D_{\rm M2}$ are the transverse comoving
-distances to $z_1$ and $z_2$, $D_{\rm H}$ is the Hubble distance, and
-$\Omega_k$ is the curvature density parameter (Peebles, 1993,
-pp~336--337).  Unfortunately, the above formula is {\em not correct\/}
-for $\Omega_k<0$ (Phillip Helbig, 1998, private communication).
+where $D_{\rm C1}$ and $D_{\rm C2}$ are the line-of-sight comoving
+distances to $z_1$ and $z_2$ (with $z_1 < z_2$), $D_{\rm H}$ is the
+Hubble distance, and $\Omega_k$ is the curvature density parameter
+(Peebles, 1993, pp~336--337).
 
 
 \section{Luminosity distance}
@@ -535,12 +563,12 @@ intersection probability is plotted in Figure~\ref{doptdepthdz}.
 
 Roger Blandford, Ed Farhi, Jim Peebles and Wal Sargent all contributed
 generously to my understanding of this material and Kurt Adelberger,
-Lee Armus, Andrew Baker, Deepto Chakrabarty, Alex Filippenko, Andrew
-Hamilton, Phillip Helbig, Wayne Hu, John Huchra, Daniel Mortlock, Tom
-Murphy, Gerry Neugebauer, Adam Riess, Paul Schechter, Douglas Scott
-and Ned Wright caught errors, suggested additional material, or helped
-me with wording, conventions or terminology.  I thank the NSF and NASA
-for financial support.
+Lee Armus, Andrew Baker, Deepto Chakrabarty, Chris Fassnacht, Alex
+Filippenko, Andrew Hamilton, Phillip Helbig, Wayne Hu, John Huchra,
+Daniel Mortlock, Tom Murphy, Gerry Neugebauer, Adam Riess, Paul
+Schechter, Douglas Scott and Ned Wright caught errors, suggested
+additional material, or helped me with wording, conventions or
+terminology.  I thank the NSF and NASA for financial support.
 
 \begin{references}
 \item
