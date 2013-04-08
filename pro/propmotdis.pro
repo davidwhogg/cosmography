@@ -10,6 +10,7 @@
 ;   OmegaM  - Omega-matter at z=0
 ;   OmegaL  - Omega-Lambda at z=0
 ; OPTIONAL INPUTS:
+;   w       - if set, treat OmegaL as a dark energy with this EOS
 ; KEYWORDS
 ; OUTPUTS:
 ;   proper motion distance in units of the Hubble length c/H_0
@@ -20,9 +21,11 @@
 ; PROCEDURES CALLED:
 ;   comdis()
 ; REVISION HISTORY:
-;   2000-Jun-25  Written by Hogg (IAS)
+;   2000-06-25  Written by Hogg (IAS)
+;   2006-08-02  added w - Hogg (NYU)
 ;-
-function propmotdis, z,OmegaM,OmegaL
+function propmotdis, z,OmegaM,OmegaL,w=w
+  if (NOT keyword_set(w)) then w= -1D0
   TINY= double(1.0e-16)
   if (abs(OmegaM) LT TINY) AND (abs(OmegaL) LT TINY) then begin
     dM= (z+0.5*z*z)/(1.0+z)
@@ -31,7 +34,7 @@ function propmotdis, z,OmegaM,OmegaL
       q0= 0.5*OmegaM-OmegaL
       dM= (z*q0+(q0-1.0)*(sqrt(2.0*q0*z+1.0)-1.0))/(q0*q0*(1.0+z))
     endif else begin
-      dM= comdis(z,OmegaM,OmegaL)
+      dM= comdis(z,OmegaM,OmegaL,w=w)
       OmegaK= 1.0-OmegaM-OmegaL
       sqrtOmegaK= sqrt(abs(OmegaK))
       if OmegaK LT (-1.0*TINY) then dM= sin(sqrtOmegaK*dM)/sqrtOmegaK $

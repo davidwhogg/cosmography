@@ -2,7 +2,7 @@
 ; NAME:
 ;   angdidis
 ; PURPOSE:
-;   Compute angular diameter distancea (for c/H_0=1).
+;   Compute angular diameter distance (for c/H_0=1).
 ; CALLING SEQUENCE:
 ;   D= angdidis(z,OmegaM,OmegaL)
 ; INPUTS:
@@ -10,6 +10,7 @@
 ;   OmegaM  - Omega-matter at z=0
 ;   OmegaL  - Omega-Lambda at z=0
 ; OPTIONAL INPUTS:
+;   w       - if set, treat OmegaL as a dark energy with this EOS
 ; KEYWORDS
 ; OUTPUTS:
 ;   angular diameter distance in units of the Hubble length c/H_0
@@ -20,8 +21,8 @@
 ; PROCEDURES CALLED:
 ;   propmotdis()
 ; REVISION HISTORY:
-;   2000-Jun-25  Written by Hogg (IAS)
+;   2000-06-25  Written by Hogg (IAS)
 ;-
-function angdidis, z,OmegaM,OmegaL
-  return, propmotdis(z,OmegaM,OmegaL)/(1.0+z)
+function angdidis, z,OmegaM,OmegaL,w=w
+  return, propmotdis(z,OmegaM,OmegaL,w=w)/(1.0+z)
 end

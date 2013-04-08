@@ -10,6 +10,7 @@
 ;   OmegaM  - Omega-matter at z=0
 ;   OmegaL  - Omega-Lambda at z=0
 ; OPTIONAL INPUTS:
+;   w       - if set, treat OmegaL as a dark energy with this EOS
 ; KEYWORDS
 ; OUTPUTS:
 ;   differential comoving distance DD/dz in units of the Hubble length c/H_0
@@ -19,9 +20,13 @@
 ; EXAMPLES:
 ; PROCEDURES CALLED:
 ; REVISION HISTORY:
-;   25-Jun-2000  Written by Hogg (IAS)
+;   2000-06-25  Written by Hogg (IAS)
+;   2006-08-02  added w - Hogg (NYU)
 ;-
-function dcomdisdz, z,OmegaM,OmegaL
-  return, ((1.D)/sqrt(((1.D)+z)*((1.D)+z)*((1.D)+OmegaM*z)-z*((2.0D)+z) $
-                      *OmegaL))
+function dcomdisdz, z,OmegaM,OmegaL,w=w
+  if (NOT keyword_set(w)) then w= -1D0
+  OmegaK= 1D0-OmegaM-OmegaL
+  return, ((1D0)/sqrt(OmegaM*(1D0+z)^3 $
+                      +OmegaK*(1D0+z)^2 $
+                      +OmegaL*(1D0+z)^(-3D0*(1D0+w))))
 end
